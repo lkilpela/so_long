@@ -1,10 +1,10 @@
-CCFLAGS = -Wall -Wextra -Werror -Wunreachable-code -Ofast
+CCFLAGS = -Wall -Wextra -Werror -Wunreachable-code -Ofast 
 NAME = so_long
 LIBMLX = ./MLX42
 
-HDRS = -I ./include -I $(LIBMLX)/include
-LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
-SRCS = $(shell find ./src -iname "*.c")
+HDRS = -I ./include -I $(LIBMLX)/include $(shell pkg-config --cflags glfw3)
+LIBS = $(LIBMLX)/build/libmlx42.a -ldl $(shell pkg-config --libs glfw3) -pthread -lm
+SRCS = main.c
 OBJS = $(SRCS:%.c=%.o)
 
 all: libmlx $(NAME)
@@ -13,10 +13,10 @@ libmlx:
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
 %.o : %.c
-	@$(CC) $(CCFLAGS) -o $@ -c $< $(HEADERS) && print "Compiling: $(notdir $<)"
+	@$(CC) $(CCFLAGS) -o $@ -c $< $(HDRS)
 
 $(NAME): $(OBJS)
-	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
+	@$(CC) $(OBJS) $(LIBS) $(HDRS) -o $(NAME) -framework Cocoa -framework OpenGL -framework IOKit
 
 clean:
 	@rm -rf $(OBJS)
