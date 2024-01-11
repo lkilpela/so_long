@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/11 22:35:55 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/12 00:00:56 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,39 @@
 # define COLLECTIBLE 'C'
 # define PLAYER 'P'
 
-typedef struct	s_game 
+typedef struct	s_point
 {
-	int		fox_x;
-	int		fox_y;
-	int		*apple_x;
-	int		*apple_y;
-	int		apple_count;
-	int		*tree_x;
-	int		*tree_y;
-	int		tree_count;
-	int		door_x;
-	int		door_y;
-	char	**map;
-	int		map_width;
-	int		map_height;
-}				t_game;
+	int	x;
+	int	y;
+}				t_point; 
+
+typedef struct	s_map
+{
+	char 	**map;
+	int		row;
+	int		column;
+	int		collectibles;
+	int		player;
+	int		exit;
+	t_point	player_pos;
+}
+				t_map;
+				
+typedef struct	s_tiles
+{
+	void	*wall;
+	void	*floor;
+	void	*exit;
+	void	*collectible;
+	void	*player;
+}				t_tiles;
+
+typedef struct	s_game
+{
+	t_map	map;
+	void	*mlx_ptr;
+	void	*win_ptr;
+	t_tiles	tiles;
+	int		moves;
+}
+				t_game;
