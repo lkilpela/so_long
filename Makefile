@@ -4,7 +4,7 @@ LIBMLX = ./MLX42
 
 HDRS = -I ./include -I $(LIBMLX)/include $(shell pkg-config --cflags glfw3)
 LIBS = $(LIBMLX)/build/libmlx42.a -ldl $(shell pkg-config --libs glfw3) -pthread -lm
-SRCS = main.c
+SRCS = game_logic/*.c	get_next_line/*.c
 OBJS = $(SRCS:%.c=%.o)
 
 all: libmlx $(NAME)
@@ -24,6 +24,7 @@ clean:
 
 fclean: clean
 	@rm -rf $(NAME)
+	make clean -C $(LIBMLX)
 
 re: fclean all
 
