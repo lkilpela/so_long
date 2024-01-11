@@ -4,8 +4,8 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "MLX42/MLX42.h"
-#define WIDTH 256
-#define HEIGHT 256
+#define WIDTH 1024
+#define HEIGHT 1024
 
 // Exit the program as failure.
 static void ft_error(void)
@@ -26,15 +26,25 @@ int32_t	main(void)
 {
 
 	// MLX allows you to define its core behaviour before startup.
-	mlx_set_setting(MLX_MAXIMIZED, true);
+	// mlx_set_setting(MLX_MAXIMIZED, true);
 	mlx_t* mlx = mlx_init(WIDTH, HEIGHT, "so_long", true);
 	if (!mlx)
 		ft_error();
 
 	/* Do stuff */
+	mlx_texture_t* apple = mlx_load_png("game_images/apple.png");
+	mlx_texture_t* castledoor = mlx_load_png("game_images/castledoor.png");
+	mlx_texture_t* cherry = mlx_load_png("game_images/cherry.png");
+	mlx_texture_t* fox = mlx_load_png("game_images/fox.png");
+	mlx_texture_t* tree = mlx_load_png("game_images/tree.png");
+	mlx_texture_t* tile = mlx_load_png("game_images/tiles_0.1.png");
 
+	if(!apple)
+		ft_error();
+	// Create an image from a texture.
+	mlx_image_t* img = mlx_texture_to_image(mlx, apple);
 	// Create and display the image.
-	mlx_image_t* img = mlx_new_image(mlx, 256, 256);
+	//mlx_image_t* img = mlx_new_image(mlx, 256, 256);
 	if (!img || (mlx_image_to_window(mlx, img, 0, 0) < 0))
 		ft_error();
 
@@ -46,5 +56,11 @@ int32_t	main(void)
 	mlx_loop_hook(mlx, ft_hook, mlx);
 	mlx_loop(mlx);
 	mlx_terminate(mlx);
+	mlx_delete_texture(apple);
+	mlx_delete_texture(castledoor);
+	mlx_delete_texture(cherry);
+	mlx_delete_texture(fox);
+	mlx_delete_texture(tree);
+	mlx_delete_texture(tile);
 	return (EXIT_SUCCESS);
 }
