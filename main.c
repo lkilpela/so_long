@@ -32,12 +32,11 @@ int32_t	main(void)
 		ft_error();
 
 	/* Do stuff */
-	mlx_texture_t* apple = mlx_load_png("game_images/apple.png");
-	mlx_texture_t* castledoor = mlx_load_png("game_images/castledoor.png");
-	mlx_texture_t* cherry = mlx_load_png("game_images/cherry.png");
-	mlx_texture_t* fox = mlx_load_png("game_images/fox.png");
-	mlx_texture_t* tree = mlx_load_png("game_images/tree.png");
-	mlx_texture_t* tile = mlx_load_png("game_images/tiles_0.1.png");
+	mlx_texture_t* apple = mlx_load_png("game_images/item.xpm");
+	mlx_texture_t* castledoor = mlx_load_png("game_images/exit.png");
+	mlx_texture_t* fox = mlx_load_png("game_images/player.png");
+	mlx_texture_t* tree = mlx_load_png("game_images/wall.png");
+	mlx_texture_t* tile = mlx_load_png("game_images/floor.png");
 
 	if(!apple)
 		ft_error();
