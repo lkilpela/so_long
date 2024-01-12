@@ -32,16 +32,16 @@ int32_t	main(void)
 		ft_error();
 
 	/* Do stuff */
-	mlx_texture_t* apple = mlx_load_png("game_images/item.png");
-	mlx_texture_t* castledoor = mlx_load_png("game_images/exit.png");
-	mlx_texture_t* fox = mlx_load_png("game_images/player.png");
-	mlx_texture_t* tree = mlx_load_png("game_images/wall.png");
-	mlx_texture_t* tile = mlx_load_png("game_images/floor.png");
+	mlx_texture_t* apple = mlx_load_png("assets/item.png");
+	mlx_texture_t* castledoor = mlx_load_png("assets/exit.png");
+	mlx_texture_t* fox = mlx_load_png("assets/player.png");
+	mlx_texture_t* tree = mlx_load_png("assets/wall.png");
+	mlx_texture_t* tile = mlx_load_png("assets/floor.png");
 
 	if(!apple)
 		ft_error();
 	// Create an image from a texture.
-	mlx_image_t* img = mlx_texture_to_image(mlx, apple);
+	mlx_image_t* img = mlx_texture_to_image(mlx, tile);
 	// Create and display the image.
 	//mlx_image_t* img = mlx_new_image(mlx, 256, 256);
 	if (!img || (mlx_image_to_window(mlx, img, 0, 0) < 0))
