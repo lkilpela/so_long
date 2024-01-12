@@ -32,7 +32,7 @@ int32_t	main(void)
 		ft_error();
 
 	/* Do stuff */
-	mlx_texture_t* apple = mlx_load_png("game_images/item.xpm");
+	mlx_texture_t* apple = mlx_load_png("game_images/item.png");
 	mlx_texture_t* castledoor = mlx_load_png("game_images/exit.png");
 	mlx_texture_t* fox = mlx_load_png("game_images/player.png");
 	mlx_texture_t* tree = mlx_load_png("game_images/wall.png");
