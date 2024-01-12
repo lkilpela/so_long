@@ -57,7 +57,6 @@ int32_t	main(void)
 	mlx_terminate(mlx);
 	mlx_delete_texture(apple);
 	mlx_delete_texture(castledoor);
-	mlx_delete_texture(cherry);
 	mlx_delete_texture(fox);
 	mlx_delete_texture(tree);
 	mlx_delete_texture(tile);
