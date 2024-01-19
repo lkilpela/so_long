@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 23:33:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/19 10:53:55 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/19 10:55:07 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	allocate_map(t_map *map, char *map_file)
 	alloc_map_grid(map);
 }
 
-void	alloc_map_grid(t_map *map)
+void	allocate_map_grid(t_map *map)
 {
 	int	i;
 	int j;
