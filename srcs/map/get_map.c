@@ -6,21 +6,11 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 23:33:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/18 22:17:03 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/19 10:01:30 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-static bool	is_ber_extension(char *map_file)
-{
-	char	*dot;
-
-	dot = ft_strrchr(map_file, '.');
-	if (!dot || ft_strcmp(dot, ".ber"))
-		return (false);
-	return (true);
-}
 
 // Calculate width of map, excluding '\n' character as last character in string 
 static int	get_map_width(char *map_file)
@@ -60,4 +50,67 @@ static int	get_map_height(char *map_file)
 	}
 	close(fd);
 	return (i);
+}
+
+int	load_map(t_map *map, char *map_file)
+{
+	map->row = get_map_height(map_file);
+	if(map->row < 0)
+	{
+		perror("Error");
+		return (-1);
+	}
+	map->column = get_map_width(map_file)
+	if(map->column < 0)
+	{
+		perror("Error");
+		return (-1);
+	}
+	alloc_map_grid(map);
+}
+
+void	alloc_map_grid(t_map *map)
+{
+	int	i;
+	
+	map->grid = malloc(sizeof(char *) * map->row);
+	if (map->grid == NULL)
+		exit(-1);
+	i = 0;
+	while(i < map->row)
+	{
+		map->grid[i] = malloc(sizeof(char) * map->column);
+		if (map->grid == NULL)
+			exit(-1);
+		i++;
+	}
+}
+
+int	load_map_grid(t_map *map, char *map_file)
+{
+	int		fd;
+	int		i;
+	int		j;
+	char	*line;
+	
+	fd = open(map_file, O_RDONLY);
+	if (fd < 0)
+	{
+		perror("Error opening file\n");
+		return (-1);
+	}
+	i = 0;
+	while (i < map->row)
+	{
+		j = 0;
+		get_next_line(fd, &line);
+		while (j < map->column)
+		{
+			map->grid[i][j] = line[j];
+			j++;
+		}
+		i++;
+	}
+	close(fd);
+	return (0);	
 }
