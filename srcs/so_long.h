@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/19 14:18:22 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/19 14:58:33 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,7 @@ typedef struct	s_game
 	//t_tiles	tiles;
 }
 				t_game;
+
+int	load_map(t_map *map, char *map_file);
 
 #endif
