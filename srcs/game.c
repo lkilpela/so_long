@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:34:51 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/19 17:37:09 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/19 17:53:32 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,30 @@ int init_game(t_game *game, char *map_file)
     if(!apple || !castledoor || !fox || !tree || !tile)
 		ft_error();
 
-    game.tiles.collectible = mlx_texture_to_image(mlx, apple);
-	mlx_resize_image(game.tiles.collectible, TILE_SIZE, TILE_SIZE);
-	game.tiles.exit = mlx_texture_to_image(mlx, castledoor);
-	mlx_resize_image(game.tiles.exit, TILE_SIZE, TILE_SIZE);
-	game.tiles.player = mlx_texture_to_image(mlx, fox);
-	mlx_resize_image(game.tiles.player, TILE_SIZE, TILE_SIZE);
-	game.tiles.wall = mlx_texture_to_image(mlx, tree);
-	mlx_resize_image(game.tiles.wall, TILE_SIZE, TILE_SIZE);
-	game.tiles.floor = mlx_texture_to_image(mlx, tile);
-	mlx_resize_image(game.tiles.floor, TILE_SIZE, TILE_SIZE);
+    game->tiles.collectible = mlx_texture_to_image(game->mlx_ptr, apple);
+	mlx_resize_image(game->tiles.collectible, TILE_SIZE, TILE_SIZE);
+	game->tiles.exit = mlx_texture_to_image(game->mlx_ptr, castledoor);
+	mlx_resize_image(game->tiles.exit, TILE_SIZE, TILE_SIZE);
+	game->tiles.player = mlx_texture_to_image(game->mlx_ptr, fox);
+	mlx_resize_image(game->tiles.player, TILE_SIZE, TILE_SIZE);
+	game->tiles.wall = mlx_texture_to_image(game->mlx_ptr, tree);
+	mlx_resize_image(game->tiles.wall, TILE_SIZE, TILE_SIZE);
+	game->tiles.floor = mlx_texture_to_image(game->mlx_ptr, tile);
+	mlx_resize_image(game->tiles.floor, TILE_SIZE, TILE_SIZE);
 
-	if (load_map(&game.map, "game_maps/map.ber") < 0) 
+	if (load_map(&game->map, map_file) < 0) 
 	{
 		fprintf(stderr, "Error loading map\n");
-		return 1;
+		return (-1);
 	}
+    return (0);
+}
+
+void    free_game(t_game *game)
+{
+    mlx_delete_texture(game->tiles.collectible);
+	mlx_delete_texture(game->tiles.exit);
+	mlx_delete_texture(game->tiles.wall);
+	mlx_delete_texture(game->tiles.floor);
+	mlx_delete_texture(game->tiles.player);
 }
