@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 23:33:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/19 13:05:45 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/19 14:05:07 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	get_map_dimension(t_map *map, char *map_file)
 {
 	int		i;
-	int 	fd;
+	int		fd;
 	char	chr;
 	
 	i = 0;
@@ -44,39 +44,21 @@ static int	get_map_dimension(t_map *map, char *map_file)
 	return (0);
 }
 
-static int	allocate_map(t_map *map, char *map_file)
-{
-	map->row = get_map_height(map_file);
-	map->column = get_map_width(map_file)
-	if(map->column < 0 || map->row < 0)
-	{
-		perror("Error getting map dimensions\n");
-		return (-1);
-	}
-	alloc_map_grid(map);
-	if (map->grid == NULL)
-	{
-		perror("Error allocating memory for map grid\n");
-		return (-1);
-	}
-	return (0);
-}
-
-static void	allocate_map_grid(t_map *map)
+static int	allocate_map_grid(t_map *map)
 {
 	int	i;
 	int j;
 	
-	map->grid = malloc(sizeof(char *) * map->row);
+	map->grid = malloc(sizeof(char *) * map->height);
 	if (map->grid == NULL)
 	{
 		perror("Error allocating memory for map grid\n");
 		return (-1);
 	}
 	i = 0;
-	while(i++ < map->row)
+	while(i++ < map->height)
 	{
-		map->grid[i] = malloc(sizeof(char) * (map->column + 1));
+		map->grid[i] = malloc(sizeof(char) * (map->width + 1));
 		if (map->grid[i] == NULL)
 		{
 			perror("Error allocating memory for map grid\n");
@@ -87,23 +69,36 @@ static void	allocate_map_grid(t_map *map)
 			return (-1);
 		}
 	}
+	return (0);
 }
 
-int	validate_map(t_map *map)
+static int	validate_map(t_map *map)
 {
-	int	i;
+	int		i;
+	int		j;
+	char	chr;
 
 	i = 0;
-	if(map->row == 0 || map->column == 0)
+	if(map->height == 0 || map->width == 0)
 	{
 		perror("Error: Map is empty\n");
 		return (-1);
 	}
-	while (i++ < map->row)
+	while (i++ < map->height)
 	{
-		if ()
+		j = 0;
+		chr = map->grid[i][j];
+		while (j++ < map->width)
+		{
+			if (chr != '0' && chr != '1' && chr != 'C' && chr != 'E' 
+			&& chr != 'P')
+			{
+				printf("Invalid character '%c' at position (%d, %d)\n", c, i, j);
+				return (-1);
+			}
+		}
 	}
-	
+	return (0);
 }
 
 int read_map_into_struct(t_map *map, char *map_file)
@@ -118,15 +113,15 @@ int read_map_into_struct(t_map *map, char *map_file)
 		return (-1);
 	}
 	i = 0;
-	while (i++ < map->row)
+	while (i++ < map->height)
 	{
-		if (read(fd, map->grid[i], map->column + 1) < 0)
+		if (read(fd, map->grid[i], map->width + 1) < 0)
 		{
 			perror("Error reading map file\n");
 			close(fd);
 			return (-1);
 		}
-		map->grid[i][map->column] = '\0';
+		map->grid[i][map->width] = '\0';
 	}
 	close(fd);
 	return (0);	
