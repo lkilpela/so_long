@@ -6,45 +6,20 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 23:33:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/19 12:57:14 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/19 13:05:45 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// Calculate width of map, excluding '\n' character as last character in string 
-static int	get_map_width(char *map_file)
-{
-	int	i;
-	int	fd;
-
-	i = 0;
-	fd = open(map_file, O_RDONLY);
-	if (fd < 0)
-	{
-		perror("Error opening file\n");
-		return (-1);
-	}
-	while (read(fd, &chr, 1) > 0)
-	{
-		if (chr == '\0')
-			i++;
-	}
-	close(fd);
-	return (i);
-}
-
-//Calculate the number of lines in map file
-static int	get_map_height(t_map *map, char *map_file)
+static int	get_map_dimension(t_map *map, char *map_file)
 {
 	int		i;
-	int		j;
 	int 	fd;
 	char	chr;
 	
 	i = 0;
-	j = 0;
-	map->row = 0;
+	map->height = 0;
 	fd = open(map_file, O_RDONLY);
 	if (fd < 0)
 	{
@@ -54,10 +29,19 @@ static int	get_map_height(t_map *map, char *map_file)
 	while (read(fd, &chr, 1) > 0)
 	{
 		if (chr == '\n')
-			map->row++;
+		{
+			map->height++;
+			if(map->height == 1)
+				map->width = i;
+			else if(i != map->width)
+				return (-1);
+			i = 0;
+		}
+		else
+			i++;
 	}
 	close(fd);
-	return (i);
+	return (0);
 }
 
 static int	allocate_map(t_map *map, char *map_file)
