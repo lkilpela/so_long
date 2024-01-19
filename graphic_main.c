@@ -62,3 +62,9 @@ int32_t	main(void)
 	mlx_delete_texture(tile);
 	return (EXIT_SUCCESS);
 }
+
+if (load_map(&map, "map.txt") < 0) 
+{
+    fprintf(stderr, "Error loading map\n");
+    return 1;
+}
