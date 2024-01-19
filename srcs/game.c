@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:34:51 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/19 17:53:32 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/19 18:06:12 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ int init_game(t_game *game, char *map_file)
 
 	if (load_map(&game->map, map_file) < 0) 
 	{
-		fprintf(stderr, "Error loading map\n");
+		printf("Error loading map\n");
 		return (-1);
 	}
-    return (0);
+    return (init_pos(game));
 }
 
 void    free_game(t_game *game)
@@ -49,4 +49,27 @@ void    free_game(t_game *game)
 	mlx_delete_texture(game->tiles.wall);
 	mlx_delete_texture(game->tiles.floor);
 	mlx_delete_texture(game->tiles.player);
+}
+
+int init_pos(t_game *game)
+{
+    int x;
+    int y;
+    while (y < game->map.height)
+    {
+        while (x < game->map.width)
+        {
+            if(game->map.grid[y][x] == 'P') 
+            {
+                game->player.x = x;
+                game->player.y = y;
+            }
+            if(game->map.grid[y][x] == 'E') 
+            {
+                game->exit.x = x;
+                game->exit.y = y;
+            }
+        }
+    }
+    return (0);
 }
