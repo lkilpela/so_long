@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 23:33:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/19 14:30:37 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/19 14:48:47 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ static int	validate_map(t_map *map)
 	return (0);
 }
 
-int read_map_into_struct(t_map *map, char *map_file)
+static int read_map_into_struct(t_map *map, char *map_file)
 {
 	int	fd;
 	int	i;
@@ -130,3 +130,27 @@ int read_map_into_struct(t_map *map, char *map_file)
 	return (0);	
 }
 
+int	load_map(t_map *map, char *map_file)
+{
+	if (get_map_dimension(map, map_file) < 0)
+	{
+		perror("Error getting map dimension\n");
+		return (-1);
+	}
+	if (allocate_map_grid(map) < 0)
+	{
+		perror("Error allocating memory for map grid\n");
+		return (-1);
+	}
+	if (read_map_into_struct(map, map_file) < 0)
+	{
+		perror("Error reading map into struct\n");
+		return (-1);
+	}
+	if (validate_map(map, map_file) < 0)
+	{
+		perror("Error validating map\n");
+		return (-1);
+	}
+	return (0);	
+}
