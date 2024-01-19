@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 23:33:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/19 10:55:07 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/19 12:20:01 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,13 @@ int	allocate_map(t_map *map, char *map_file)
 		return (-1);
 	}
 	alloc_map_grid(map);
+	if (map->grid == NULL)
+	{
+		perror("Error allocating memory for map grid\n");
+		free(map);
+		return (-1);
+	}
+	return (0);
 }
 
 void	allocate_map_grid(t_map *map)
@@ -87,4 +94,30 @@ void	allocate_map_grid(t_map *map)
 			return (-1);
 		}
 	}
+}
+
+int read_map_into_struct(t_map *map, char *map_file)
+{
+	int	fd;
+	int	i;
+
+	fd = open(map_file, O_RDONLY);
+	if (fd < 0)
+	{
+		perror("Error opening file\n");
+		return (-1);
+	}
+	i = 0;
+	while (i++ < map->row)
+	{
+		if (read(fd, map->grid[i, map->column + 1]) < 0)
+		{
+			perror("Error reading map file\n");
+			close(fd);
+			return (-1);
+		}
+		map->grid[i, map->column] = '\0';
+	}
+	close(fd);
+	return (0);	
 }
