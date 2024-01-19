@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/19 17:11:29 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/19 17:31:52 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ typedef struct	s_game
 	t_map		map;
 	t_position	player;
 	t_position	exit;
-	//void	*mlx_ptr;
-	//void	*win_ptr;
-	t_tiles	tiles;
+	void		*mlx_ptr;
+	void		*win_ptr;
+	t_tiles		tiles;
 }
 				t_game;
 
