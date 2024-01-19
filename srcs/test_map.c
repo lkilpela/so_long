@@ -1,4 +1,4 @@
-#include "git/so_long/srcs/so_long.h"
+#include "so_long.h"
 int read_map_into_struct(t_map *map, char *map_file);
 
 t_map map;

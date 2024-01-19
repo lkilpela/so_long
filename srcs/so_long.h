@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/19 12:58:06 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/19 14:18:22 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>
-# include "./MLX42/include/MLX42/MLX42.h"
+//# include "./MLX42/include/MLX42/MLX42.h"
 
 # define OPEN_SPACE '0'
 # define WALL '1'

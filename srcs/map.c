@@ -6,11 +6,11 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 23:33:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/19 14:13:12 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/19 14:30:37 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "git/so_long/srcs/so_long.h"
+#include "so_long.h"
 
 static int	get_map_dimension(t_map *map, char *map_file)
 {
@@ -84,19 +84,21 @@ static int	validate_map(t_map *map)
 		perror("Error: Map is empty\n");
 		return (-1);
 	}
-	while (i++ < map->height)
+	while (i < map->height)
 	{
 		j = 0;
-		chr = map->grid[i][j];
-		while (j++ < map->width)
+		while (j < map->width)
 		{
+			chr = map->grid[i][j];
 			if (chr != '0' && chr != '1' && chr != 'C' && chr != 'E' 
 			&& chr != 'P')
 			{
-				printf("Invalid character '%c' at position (%d, %d)\n", c, i, j);
+				printf("Invalid character '%c' at position (%d, %d)\n", chr, i, j);
 				return (-1);
 			}
+			j++;
 		}
+		i++;
 	}
 	return (0);
 }
@@ -113,7 +115,7 @@ int read_map_into_struct(t_map *map, char *map_file)
 		return (-1);
 	}
 	i = 0;
-	while (i++ < map->height)
+	while (i < map->height)
 	{
 		if (read(fd, map->grid[i], map->width + 1) < 0)
 		{
@@ -122,7 +124,9 @@ int read_map_into_struct(t_map *map, char *map_file)
 			return (-1);
 		}
 		map->grid[i][map->width] = '\0';
+		i++;
 	}
 	close(fd);
 	return (0);	
 }
+
