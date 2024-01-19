@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/19 09:36:24 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/19 12:58:06 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ typedef struct	s_position
 typedef struct	s_map
 {
 	char 		**grid;
-	int			row;
-	int			column;
+	int			width;
+	int			height;
 	//int			collectibles;
 	//int			player;
 	//t_position	exit;
