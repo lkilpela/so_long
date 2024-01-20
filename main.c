@@ -14,7 +14,13 @@ static void	*get_tile(t_game *game, int j, int i)
 		return (game->tiles.player);
 	return (game->tiles.wall);
 }
+void	hook(void *param)
+{
+	t_game* game = param;
 
+	// Print the window width and height.
+	printf("WIDTH: %d | HEIGHT: %d\n", game->mlx_ptr->width, game->mlx_ptr->height);
+}
 int	main(void)
 {
 	t_game game;
@@ -43,8 +49,7 @@ int	main(void)
 		}
 		i++;
 	}
-	
-	
+	mlx_loop_hook(game.mlx_ptr, hook, &game);
 	mlx_loop(mlx);
 	mlx_terminate(mlx);
 	free_game(&game);
