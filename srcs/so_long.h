@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/19 17:52:14 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/19 18:19:50 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ typedef struct	s_map
 				
 typedef struct	s_tiles
 {
-	void	*wall;
-	void	*floor;
-	void	*exit;
-	void	*collectible;
-	void	*player;
+	mlx_image_t	*wall;
+	mlx_image_t	*floor;
+	mlx_image_t	*exit;
+	mlx_image_t	*collectible;
+	mlx_image_t	*player;
 }				t_tiles;
 
 typedef struct	s_game
@@ -64,7 +64,7 @@ typedef struct	s_game
 	t_map		map;
 	t_position	player;
 	t_position	exit;
-	void		*mlx_ptr;
+	mlx_t		*mlx_ptr;
 	void		*win_ptr;
 	t_tiles		tiles;
 }
@@ -74,5 +74,7 @@ int	load_map(t_map *map, char *map_file);
 int init_game(t_game *game, char *map_file);
 void    free_game(t_game *game);
 void ft_error(void);
+void init_player_movement(t_game *game);
+
 
 #endif
