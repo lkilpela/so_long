@@ -6,26 +6,32 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 23:33:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/22 13:29:11 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/22 14:29:31 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	get_map_dimension(t_map *map, char *map_file)
+static int	open_map_file(char *map_file)
+{
+	int	fd;
+
+	fd = open(map_file, O_RDONLY);
+	if (fd < 0)
+	{
+		perror(ERROR_OPENING_FILE_MSG);
+		return (ERROR_OPENING_FILE);
+	}
+	return (fd);
+}
+
+static int	get_map_dimension(t_map *map, int fd)
 {
 	int		i;
-	int		fd;
 	char	chr;
 	
 	i = 0;
 	map->height = 0;
-	fd = open(map_file, O_RDONLY);
-	if (fd < 0)
-	{
-		perror("Error opening file\n");
-		return (-1);
-	}
 	while (read(fd, &chr, 1) > 0)
 	{
 		if (chr == '\n')
@@ -34,41 +40,34 @@ static int	get_map_dimension(t_map *map, char *map_file)
 			if(map->height == 1)
 				map->width = i;
 			else if(i != map->width)
-				return (-1);
+				return (ERROR_INVALID_MAP);
 			i = 0;
 		}
 		else
 			i++;
 	}
-	close(fd);
 	return (0);
 }
 
 static int	allocate_map_grid(t_map *map)
 {
 	int	i;
-	int j;
 	
 	map->grid = malloc(sizeof(char *) * map->height);
 	if (map->grid == NULL)
-	{
-		perror("Error allocating memory for map grid\n");
-		return (-1);
-	}
+		return (ERROR_ALLOCATING_MEMORY);
 	i = 0;
 	while(i < map->height)
 	{
 		map->grid[i] = malloc(sizeof(char) * (map->width + 1));
 		if (map->grid[i] == NULL)
 		{
-			perror("Error allocating memory for map grid\n");
-			j = 0;
-			while (j < i)
-				free(map->grid[j++]);
+			while (i >= 0)
+				free(map->grid[i--]);
 			free(map->grid);
-			return (-1);
+			map->grid = NULL;
+			return (ERROR_ALLOCATING_MEMORY);
 		}
-		i++;
 	}
 	return (0);
 }
@@ -82,8 +81,8 @@ static int	validate_map(t_map *map)
 	i = 0;
 	if(map->height == 0 || map->width == 0)
 	{
-		perror("Error: Map is empty\n");
-		return (-1);
+		perror(ERROR_EMPTY_MAP_MSG);
+		return (ERROR_EMPTY_MAP);
 	}
 	while (i < map->height)
 	{
@@ -95,7 +94,7 @@ static int	validate_map(t_map *map)
 				&& chr != EXIT && chr != PLAYER)
 			{
 				printf("Invalid character '%c' at position (%d, %d)\n", chr, i, j);
-				return (-1);
+				return (ERROR_INVALID_CHARACTER);
 			}
 			j++;
 		}
@@ -104,25 +103,18 @@ static int	validate_map(t_map *map)
 	return (0);
 }
 
-static int read_map_into_struct(t_map *map, char *map_file)
+static int read_map_into_struct(t_map *map, int fd)
 {
-	int	fd;
 	int	i;
 
-	fd = open(map_file, O_RDONLY);
-	if (fd < 0)
-	{
-		perror("Error opening file\n");
-		return (-1);
-	}
 	i = 0;
 	while (i < map->height)
 	{
 		if (read(fd, map->grid[i], map->width + 1) < 0)
 		{
-			perror("Error reading map file\n");
+			perror(ERROR_READING_FILE_MSG);
 			close(fd);
-			return (-1);
+			return (ERROR_READING_FILE);
 		}
 		map->grid[i][map->width] = '\0';
 		i++;
@@ -133,25 +125,28 @@ static int read_map_into_struct(t_map *map, char *map_file)
 
 int	load_map(t_map *map, char *map_file)
 {
-	if (get_map_dimension(map, map_file) < 0)
+	int fd;
+
+	fd = open_map_file(map_file);
+	if (get_map_dimension(map, fd) < 0)
 	{
-		perror("Error getting map dimension\n");
-		return (-1);
+		perror(ERROR_INVALID_DIMENSIONS_MSG);
+		return (ERROR_INVALID_DIMENSIONS);
 	}
 	if (allocate_map_grid(map) < 0)
 	{
-		perror("Error allocating memory for map grid\n");
-		return (-1);
+		perror(ERROR_ALLOCATING_MEMORY_MSG);
+		return (ERROR_ALLOCATING_MEMORY);
 	}
-	if (read_map_into_struct(map, map_file) < 0)
+	if (read_map_into_struct(map, fd) < 0)
 	{
-		perror("Error reading map into struct\n");
-		return (-1);
+		perror(ERROR_READING_FILE_MSG);
+		return (ERROR_READING_FILE);
 	}
 	if (validate_map(map) < 0)
 	{
-		perror("Error validating map\n");
-		return (-1);
+		perror(ERROR_INVALID_MAP_MSG);
+		return (ERROR_INVALID_MAP);
 	}
 	return (0);	
 }
