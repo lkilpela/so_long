@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/22 09:06:05 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/22 09:12:39 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct	s_game
 	mlx_t		*mlx_ptr;
 	void		*win_ptr;
 	t_tiles		tiles;
+	int			tile_size;
 }
 				t_game;
 

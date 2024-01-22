@@ -19,7 +19,7 @@ int	main(void)
 		ft_error();
 
 	game.mlx_ptr = mlx;
-	if (init_game(&game, "game_maps/map.ber") < 0)
+	if (init_game(&game, "game_maps/map2.ber") < 0)
 	{
 		perror("Error");
 		return (-1);

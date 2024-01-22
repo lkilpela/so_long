@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:25:02 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/22 08:48:46 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/22 09:18:25 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	key_hook(mlx_key_data_t keydata, void* param)
 	{
 		if(game->map.grid[game->player.y+dy][game->player.x+dx] != '1') 
 		{
-			game->tiles.player->instances[0].y += dy*TILE_SIZE;
-			game->tiles.player->instances[0].x += dx*TILE_SIZE;
+			game->tiles.player->instances[0].y += dy*game->tile_size;
+			game->tiles.player->instances[0].x += dx*game->tile_size;
 			game->player.y += dy;
 			game->player.x += dx;
 			game->move_count++;

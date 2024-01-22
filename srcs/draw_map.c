@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 17:40:34 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/20 17:59:58 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/22 09:15:54 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void draw_map(t_game *game)
 		int j = 0;
 		while (j < game->map.width)
 		{
-			mlx_image_to_window(game->mlx_ptr, get_basic_tile(game, j, i), TILE_SIZE * j, TILE_SIZE * i);
+			mlx_image_to_window(game->mlx_ptr, get_basic_tile(game, j, i), game->tile_size * j, game->tile_size * i);
 			j++;
 		}
 		i++;
@@ -51,7 +51,7 @@ void draw_map(t_game *game)
 		{
 			void* tile = get_tile(game, j, i);
 			if(tile) 
-				mlx_image_to_window(game->mlx_ptr, tile, TILE_SIZE * j, TILE_SIZE * i);
+				mlx_image_to_window(game->mlx_ptr, tile, game->tile_size * j, game->tile_size * i);
 			j++;
 		}
 		i++;
