@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/22 10:57:46 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:43:20 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>
+# include "error.h"
 # include "MLX42/include/MLX42/MLX42.h"
 
 # define OPEN_SPACE '0'
@@ -26,7 +27,6 @@
 # define COLLECTIBLE 'C'
 # define PLAYER 'P'
 
-# define TILE_SIZE 64
 # define WIDTH 1024
 # define HEIGHT 1024
 

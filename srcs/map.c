@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 23:33:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/22 13:27:38 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:29:11 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,8 @@ static int	validate_map(t_map *map)
 		while (j < map->width)
 		{
 			chr = map->grid[i][j];
-			if (chr != OPEN_SPACE && chr != '1' && chr != 'C' && chr != 'E' 
-			&& chr != 'P')
+			if (chr != OPEN_SPACE && chr != WALL && chr != COLLECTIBLE 
+				&& chr != EXIT && chr != PLAYER)
 			{
 				printf("Invalid character '%c' at position (%d, %d)\n", chr, i, j);
 				return (-1);
