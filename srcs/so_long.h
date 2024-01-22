@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/22 13:43:20 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:50:21 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,20 @@
 # define WIDTH 1024
 # define HEIGHT 1024
 
-typedef struct	s_position
+typedef struct s_position
 {
 	int	x;
 	int	y;
-}				t_position; 
+}				t_position;
 
-typedef struct	s_map
+typedef struct s_map
 {
-	char 		**grid;
+	char		**grid;
 	int			width;
 	int			height;
-}
-				t_map;
-				
-typedef struct	s_tiles
+}				t_map;
+
+typedef struct s_tiles
 {
 	mlx_image_t	*wall;
 	mlx_image_t	*floor;
@@ -53,7 +52,7 @@ typedef struct	s_tiles
 	mlx_image_t	*player;
 }				t_tiles;
 
-typedef struct	s_game
+typedef struct s_game
 {
 	int			collectibles_count;
 	int			move_count;
@@ -64,8 +63,7 @@ typedef struct	s_game
 	void		*win_ptr;
 	t_tiles		tiles;
 	int			tile_size;
-}
-				t_game;
+}				t_game;
 
 int		load_map(t_map *map, char *map_file);
 int		init_game(t_game *game, char *map_file);
@@ -73,6 +71,5 @@ void	free_game(t_game *game);
 void	ft_error(void);
 void	init_player_movement(t_game *game);
 void	draw_map(t_game *game);
-
 
 #endif

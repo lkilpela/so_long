@@ -6,12 +6,12 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 13:42:23 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/22 13:42:41 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:44:56 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ERROR_CODES_H
-# define ERROR_CODES_H
+#ifndef ERROR_H
+# define ERROR_H
 
 # define ERROR_OPENING_FILE -2
 # define ERROR_ALLOCATING_MEMORY -3
