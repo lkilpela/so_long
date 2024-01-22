@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:25:02 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/22 09:18:25 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/22 09:29:42 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	key_hook(mlx_key_data_t keydata, void* param)
 			}	
 			if(game->map.grid[game->player.y][game->player.x] == 'E') 			
 				printf("Congratulations, you found exit\n");
-			printf("step %d\n", game->move_count);
+			printf("Number of movements: %d\n", game->move_count);
 		}
 	}
 }
