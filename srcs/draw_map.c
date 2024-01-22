@@ -6,37 +6,48 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 17:40:34 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/22 12:50:33 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:25:53 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void *(*get_tile_func)(t_game *, int, int);
+// Function pointer type declaration. 
+typedef int (*tile_function)(t_game *, int, int);
 
-static void	*get_tile(t_game *game, int x, int y)
+static int	draw_special_tile(t_game *game, int x, int y)
 {
+	void	*tile;
+	
 	if (!game)
-		return (NULL);
+		return (-1);
 	if (game->map.grid[y][x] == COLLECTIBLE)
-		return (game->tiles.collectible);
+		tile = game->tiles.collectible;
 	if (game->map.grid[y][x] == EXIT)
-		return (game->tiles.exit);
+		tile = game->tiles.exit;
 	if (game->map.grid[y][x] == PLAYER)
-		return (game->tiles.player);
-	return (NULL);
+		tile = game->tiles.player;
+	mlx_image_to_window(game->mlx_ptr, tile, game->tile_size * x,
+			game->tile_size * y);
+	return (0);
 }
 
-static void	*get_basic_tile(t_game *game, int x, int y)
+static int	draw_basic_tile(t_game *game, int x, int y)
 {
+	void	*tile;
+	
 	if (!game)
-		return (NULL);
+		return (-1);
 	if (game->map.grid[y][x] == WALL)
-		return (game->tiles.wall);
-	return (game->tiles.floor);
+		tile = game->tiles.wall;
+	else 
+		tile = game->tiles.floor;
+	mlx_image_to_window(game->mlx_ptr, tile, game->tile_size * x,
+			game->tile_size * y);
+	return (0);
 }
 
-void	draw_tiles(t_game *game, get_tile_func get_tile)
+void	iterate_map(t_game *game, tile_function func)
 {
 	int		x;
 	int		y;
@@ -50,20 +61,19 @@ void	draw_tiles(t_game *game, get_tile_func get_tile)
 		x = 0;
 		while (x < game->map.width)
 		{
-			tile = get_tile(game, x, y);
-			if (tile)
-				mlx_image_to_window(game->mlx_ptr, tile, game->tile_size * x,
-					game->tile_size * y);
+			if(func(game, x, y) < 0)
+				return;
 			x++;
 		}
 		y++;
 	}
 }
 
+// Draw the entire game map
 void	draw_map(t_game *game)
 {
 	if (!game)
 		return;
-	draw_tiles(game, get_basic_tile);
-	draw_tiles(game, get_tile);
+	iterate_map(game, draw_basic_tile);
+	iterate_map(game, draw_special_tile);
 }
