@@ -6,55 +6,51 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:25:02 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/20 17:37:20 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/22 08:35:46 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-/*void	hook(void *param)
-{
-	t_game* game = param;
-
-	// Print the window width and height.
-	printf("WIDTH: %d | HEIGHT: %d\n", game->mlx_ptr->width, game->mlx_ptr->height);
-
-	static int left_state;
-
-	if (mlx_is_key_down(game->mlx_ptr, MLX_KEY_ESCAPE))
-		mlx_close_window(game->mlx_ptr);
-	if (mlx_is_key_down(game->mlx_ptr, MLX_KEY_UP))
-		game->tiles.player->instances[0].y -= TILE_SIZE;fvgFY B
-	if (mlx_is_key_down(game->mlx_ptr, MLX_KEY_DOWN))
-		game->tiles.player->instances[0].y += TILE_SIZE;
-	if (mlx_is_key_down(game->mlx_ptr, MLX_KEY_LEFT)) {      
-		if(!left_state) game->tiles.player->instances[0].x -= TILE_SIZE;
-		left_state = 1;
-	} else left_state = 0;
-	if (mlx_is_key_down(game->mlx_ptr, MLX_KEY_RIGHT))
-		game->tiles.player->instances[0].x += TILE_SIZE;
-}*/
-
-
-
 void	key_hook(mlx_key_data_t keydata, void* param)
 {
 	t_game* game = param;
-	
-	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
+	int dx = 0, dy = 0;
+	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS) {
 		mlx_close_window(game->mlx_ptr);
+		return;
+	}
 	if (keydata.key == MLX_KEY_UP && keydata.action == MLX_PRESS)
-		game->tiles.player->instances[0].y -= TILE_SIZE;
+		dy = -1;
 	if (keydata.key == MLX_KEY_DOWN && keydata.action == MLX_PRESS)
-		game->tiles.player->instances[0].y += TILE_SIZE;
+		dy = 1;
 	if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_PRESS)
-		game->tiles.player->instances[0].x -= TILE_SIZE;
+		dx = -1;
 	if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_PRESS)
-		game->tiles.player->instances[0].x += TILE_SIZE;
+		dx = 1;
+		2
+		03,120
+		900
+		                  p0´11´´´´´´´´´´´´´´´´,3 24022110	if(dx != 0 || dy != 0) {
+		if(game->map.grid[game->player.y+dy][game->player.x+dx] != '1') {
+			game->tiles.player->instances[0].y += dy*TILE_SIZE;
+			game->tiles.player->instances[0].x += dx*TILE_SIZE;
+			game->player.y += dy;
+			game->player.x += dx;
+			game->move_count++;
+			if(game->map.grid[game->player.y][game->player.x] == 'C') {
+				game->collectibles_count++;
+				printf("Collectibles found: %d\n", game->collectibles_count);
+			}	
+			if(game->map.grid[game->player.y][game->player.x] == 'E') {				
+				printf("Congratulations, you found exit\n");
+			}
+			printf("step %d\n", game->move_count);
+		}
+	}
 }
-
 
 void init_player_movement(t_game *game)
 {
     mlx_key_hook(game->mlx_ptr, key_hook, game);
-}
+}7-+'åä

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:34:51 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/20 16:48:25 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/20 18:31:45 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int init_pos(t_game *game);
 
 int init_game(t_game *game, char *map_file)
 {
+	game->collectibles_count = 0;
+	game->move_count = 0;
 	mlx_texture_t* apple = mlx_load_png("assets/item.png");
 	mlx_texture_t* castledoor = mlx_load_png("assets/exit.png");
 	mlx_texture_t* fox = mlx_load_png("assets/player.png");
@@ -62,10 +64,13 @@ int init_pos(t_game *game)
 	int x;
 	int y;
 
-	x = 0;
+	game->player.x = 0;
+	game->player.y = 0;	
 	y = 0;
 	while (y < game->map.height)
 	{
+		printf("%d: %s\n", y, game->map.grid[y]);
+		x = 0;
 		while (x < game->map.width)
 		{
 			if(game->map.grid[y][x] == 'P') 
@@ -82,5 +87,6 @@ int init_pos(t_game *game)
 		}
 		y++;
 	}
+	printf("player at position (%d, %d)\n", game->player.x, game->player.y);
 	return (0);
 	}

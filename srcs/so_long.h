@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/19 18:19:50 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/20 18:01:46 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int init_game(t_game *game, char *map_file);
 void    free_game(t_game *game);
 void ft_error(void);
 void init_player_movement(t_game *game);
+void draw_map(t_game *game);
 
 
 #endif

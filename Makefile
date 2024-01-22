@@ -4,7 +4,7 @@ LIBMLX = ./MLX42
 
 HDRS = -I. -I ./include -I $(LIBMLX)/include $(shell pkg-config --cflags glfw3)
 LIBS = $(LIBMLX)/build/libmlx42.a -ldl $(shell pkg-config --libs glfw3) -pthread -lm
-SRCS = main.c srcs/map.c srcs/game.c srcs/player.c srcs/utils.c
+SRCS = main.c srcs/map.c srcs/game.c srcs/player.c srcs/utils.c srcs/draw_map.c
 OBJS = $(SRCS:%.c=%.o)
 
 all: libmlx $(NAME)
