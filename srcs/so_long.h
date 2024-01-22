@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/20 18:01:46 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/22 09:06:05 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 # define PLAYER 'P'
 
 # define TILE_SIZE 64
-#define WIDTH 1024
-#define HEIGHT 1024
+# define WIDTH 1024
+# define HEIGHT 1024
 
 typedef struct	s_position
 {
@@ -41,10 +41,6 @@ typedef struct	s_map
 	char 		**grid;
 	int			width;
 	int			height;
-	//int			collectibles;
-	//int			player;
-	//t_position	exit;
-	//t_position	player_pos;
 }
 				t_map;
 				
@@ -70,12 +66,12 @@ typedef struct	s_game
 }
 				t_game;
 
-int	load_map(t_map *map, char *map_file);
-int init_game(t_game *game, char *map_file);
-void    free_game(t_game *game);
-void ft_error(void);
-void init_player_movement(t_game *game);
-void draw_map(t_game *game);
+int		load_map(t_map *map, char *map_file);
+int		init_game(t_game *game, char *map_file);
+void	free_game(t_game *game);
+void	ft_error(void);
+void	init_player_movement(t_game *game);
+void	draw_map(t_game *game);
 
 
 #endif
