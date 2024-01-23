@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/22 18:41:57 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/23 21:44:55 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdio.h>
 # include <string.h>
 # include "error.h"
+# include "get_next_line/get_next_line.h"
 # include "MLX42/include/MLX42/MLX42.h"
 
 # define OPEN_SPACE '0'
@@ -65,7 +66,7 @@ typedef struct s_game
 	int			tile_size;
 }				t_game;
 
-int		load_map(t_map *map, char *map_file);
+int		load_map(t_game *game, char *map_file);
 int		init_game(t_game *game, char *map_file);
 void	free_game(t_game *game);
 void	ft_error(void);

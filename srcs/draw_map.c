@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 17:40:34 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/22 13:25:53 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/23 22:00:21 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static int	draw_special_tile(t_game *game, int x, int y)
 {
 	void	*tile;
 	
+	tile = NULL;
 	if (!game)
 		return (-1);
 	if (game->map.grid[y][x] == COLLECTIBLE)
@@ -27,7 +28,8 @@ static int	draw_special_tile(t_game *game, int x, int y)
 		tile = game->tiles.exit;
 	if (game->map.grid[y][x] == PLAYER)
 		tile = game->tiles.player;
-	mlx_image_to_window(game->mlx_ptr, tile, game->tile_size * x,
+	if (tile)
+		mlx_image_to_window(game->mlx_ptr, tile, game->tile_size * x,
 			game->tile_size * y);
 	return (0);
 }
@@ -51,7 +53,6 @@ void	iterate_map(t_game *game, tile_function func)
 {
 	int		x;
 	int		y;
-	void	*tile;
 
 	if (!game)
 		return;

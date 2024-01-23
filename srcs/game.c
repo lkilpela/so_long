@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:34:51 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/22 10:55:14 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/23 21:41:59 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ int init_game(t_game *game, char *map_file)
 {
 	game->collectibles_count = 0;
 	game->move_count = 0;
+	game->map.grid = 0;
+	game->map.height = 0;
+	game->map.width = 0;
 	mlx_texture_t* apple = mlx_load_png("assets/item.png");
 	mlx_texture_t* castledoor = mlx_load_png("assets/exit.png");
 	mlx_texture_t* fox = mlx_load_png("assets/player.png");
@@ -26,10 +29,10 @@ int init_game(t_game *game, char *map_file)
 
 	if(!apple || !castledoor || !fox || !tree || !tile)
 		ft_error();
-	if (load_map(&game->map, map_file) < 0) 
+	if (load_map(game, map_file) < 0) 
 	{
-		printf("Error loading map\n");
-		return (-1);
+		perror(ERROR_INVALID_MAP_MSG);
+		return (ERROR_INVALID_MAP);
 	}
 	int a = 1024/game->map.width;
 	int b = 1024/game->map.height;
@@ -77,12 +80,12 @@ int init_pos(t_game *game)
 		x = 0;
 		while (x < game->map.width)
 		{
-			if(game->map.grid[y][x] == 'P') 
+			if(game->map.grid[y][x] == PLAYER) 
 			{
 				game->player.x = x;
 				game->player.y = y;
 			}
-			if(game->map.grid[y][x] == 'E') 
+			if(game->map.grid[y][x] == EXIT) 
 			{
 				game->exit.x = x;
 				game->exit.y = y;
