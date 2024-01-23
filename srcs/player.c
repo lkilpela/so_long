@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:25:02 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/22 10:17:36 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/23 22:16:41 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,25 @@ void	key_hook(mlx_key_data_t keydata, void* param)
 			game->move_count++;
 			if(game->map.grid[game->player.y][game->player.x] == 'C') 
 			{
-				game->collectibles_count++;
-				printf("Collectibles found: %d\n", game->collectibles_count);
+				size_t i = 0;
+				while(i < game->tiles.collectible->count) {
+					if(game->tiles.collectible->instances[i].x == game->player.x*game->tile_size &&
+						game->tiles.collectible->instances[i].y == game->player.y*game->tile_size) 
+					{
+						if(game->tiles.collectible->instances[i].enabled) {
+							game->collectibles_count++;
+							printf("Collectibles found: %d\n", game->collectibles_count);
+							game->tiles.collectible->instances[i].enabled = 0;
+						}
+					}
+					++i;
+				}
 			}	
-			if(game->map.grid[game->player.y][game->player.x] == 'E') 			
-				printf("Congratulations, you found exit\n");
 			printf("Number of movements: %d\n", game->move_count);
+			if(game->map.grid[game->player.y][game->player.x] == EXIT) {		
+				printf("Congratulations, you found exit\n");
+				mlx_close_window(game->mlx_ptr);
+			}
 		}
 	}
 }
