@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:51:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 14:29:01 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/24 15:31:28 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,14 @@ const char	*g_error_msgs[] = {
 	"Error: Invalid map file. The map file must have a .ber extension.",
 	"Error: No player found in the map.",
 	"Error: No exit found in the map.",
-	"Error: No collectible found in the map."
+	"Error: No collectible found in the map.",
+	"Error: Failed to load one or more game textures."
 };
 
 // Exit the program as failure.
 void	ft_error(void)
 {
-	fprintf(stderr, "%s", mlx_strerror(mlx_errno));
+	printf("%s", mlx_strerror(mlx_errno));
 	exit(EXIT_FAILURE);
 }
 
@@ -73,6 +74,30 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 			return ((char *)haystack);
 		++haystack;
 		--len;
+	}
+	return (0);
+}
+
+int	iterate_map(t_game *game, tile_function func)
+{
+	int	x;
+	int	y;
+	int	status;
+
+	if (!game)
+		return (ERROR_NULL_ARGUMENT);
+	y = 0;
+	while (y < game->map.height)
+	{
+		x = 0;
+		while (x < game->map.width)
+		{
+			status = func(game, x, y);
+			if (status < 0)
+				return (status);
+			x++;
+		}
+		y++;
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 14:36:56 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/24 15:33:53 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@
 # define COLLECTIBLE 'C'
 # define PLAYER 'P'
 
-# define WIDTH 1024
-# define HEIGHT 1024
+# define MAX_DIMENSION 1024
 
 typedef struct s_position
 {

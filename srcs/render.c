@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 09:12:37 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 11:46:41 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/24 15:09:40 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,30 +43,6 @@ static int	draw_basic_tile(t_game *game, int x, int y)
 		tile = game->tiles.floor;
 	mlx_image_to_window(game->mlx_ptr, tile, game->tile_size * x,
 			game->tile_size * y);
-	return (0);
-}
-
-int	iterate_map(t_game *game, tile_function func)
-{
-	int	x;
-	int	y;
-	int	status;
-
-	if (!game)
-		return (ERROR_NULL_ARGUMENT);
-	y = 0;
-	while (y < game->map.height)
-	{
-		x = 0;
-		while (x < game->map.width)
-		{
-			status = func(game, x, y);
-			if(status < 0)
-				return (status);
-			x++;
-		}
-		y++;
-	}
 	return (0);
 }
 

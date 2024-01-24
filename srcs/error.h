@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 13:42:23 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 14:41:25 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/24 15:26:59 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define ERROR_NO_PLAYER -14
 # define ERROR_NO_EXIT -15
 # define ERROR_NO_COLLECTIBLE -16
-# define LAST_ERROR -17
+# define ERROR_LOAD_TEXTURE -17
+# define LAST_ERROR -18
 
 #endif

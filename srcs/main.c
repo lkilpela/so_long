@@ -20,6 +20,18 @@ static void	check_argument(int argc, char **argv)
 		exit (ERROR_INVALID_MAP_FILE);
 	}
 }
+void    free_game(t_game *game)
+{
+	int y;
+
+	y = 0;
+	while (y < game->map.height)
+	{
+		free(game->map.grid[y]);
+		y++;
+	}
+	free(game->map.grid);
+}
 
 int	main(int argc, char **argv)
 {
