@@ -6,11 +6,27 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:51:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/23 21:21:19 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/24 13:54:20 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+const char *error_msgs[] = { "No error.",
+                    "Error: Null argument provided.",
+                    "Error: Opening file.",
+"Error: Allocating memory for map grid.",
+"Error: Reading map file.",
+"Error: Validating map.",
+"Error: Empty map.",
+"Error: Invalid character in map.",
+"Error: Invalid map dimensions.",
+"Error: Invalid map boundary. The map should be surrounded by walls.",
+"Error: Invalid player count. The map should contain exactly one player character.",
+"Error: No exit. The map should contain at least one exit.",
+"Error: No map file provided. Please provide a .ber map file as the first argument.",
+"Error: Invalid map file. The map file must have a .ber extension."
+};
 
 // Exit the program as failure.
 void ft_error(void)
@@ -19,3 +35,40 @@ void ft_error(void)
 	exit(EXIT_FAILURE);
 }
 
+void	print_error(int err)
+{
+	if(err < 0 && err > LAST_ERROR)	
+		printf("%s\n", error_msgs[-err]);
+	else
+		printf("Unknown error\n");
+}
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	while ((*s1 != 0 || *s2 != 0) && n > 0)
+	{
+		if (*s1 != *s2)
+			return ((int)(unsigned char)*s1 - (int)(unsigned char)*s2);
+		s1++;
+		s2++;
+		n--;
+	}
+	return (0);
+}
+
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+{
+	size_t	n;
+
+	n = ft_strlen(needle);
+	if (*needle == 0)
+		return ((char *)haystack);
+	while (*haystack != 0 && n <= len)
+	{
+		if (ft_strncmp(haystack, needle, n) == 0)
+			return ((char *)haystack);
+		++haystack;
+		--len;
+	}
+	return (0);
+}

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:34:51 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 11:08:18 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/24 13:43:42 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int init_pos(t_game *game);
 
 int init_game(t_game *game, char *map_file)
 {
+	int	status;
 	game->collectibles_count = 0;
 	game->move_count = 0;
 	game->map.grid = 0;
@@ -31,16 +32,10 @@ int init_game(t_game *game, char *map_file)
 
 	if(!apple || !castledoor || !fox || !tree || !tile)
 		ft_error();
-	if (load_map(game, map_file) < 0) 
-	{
-		perror(ERROR_INVALID_MAP_MSG);
-		return (ERROR_INVALID_MAP);
-	}
-	if (validate_map(game) < 0)
-	{
-		perror(ERROR_INVALID_MAP_MSG);
-		return (ERROR_INVALID_MAP);
-	}
+	if ((status = load_map(game, map_file)) < 0) 
+		return (status);
+	if ((status = validate_map(game))< 0)
+		return (status);
 	int a = 1024/game->map.width;
 	int b = 1024/game->map.height;
 	if(a < b) 

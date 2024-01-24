@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 10:08:51 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/24 13:51:52 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,10 @@ void	free_game(t_game *game);
 void	ft_error(void);
 void	init_player_movement(t_game *game);
 void	render(t_game *game);
-int		iterate_map(t_game *game, tile_function func)
+int		iterate_map(t_game *game, tile_function func);
+int		validate_map(t_game *game);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+void	print_error(int err);
 
 #endif

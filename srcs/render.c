@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 09:12:37 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 10:08:28 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/24 11:46:41 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	iterate_map(t_game *game, tile_function func)
 	int	status;
 
 	if (!game)
-		return;
+		return (ERROR_NULL_ARGUMENT);
 	y = 0;
 	while (y < game->map.height)
 	{
@@ -71,10 +71,10 @@ int	iterate_map(t_game *game, tile_function func)
 }
 
 // Draw the entire game map
-void	draw_map(t_game *game)
+void	render(t_game *game)
 {
 	if (!game)
-		return;
+		exit (ERROR_NULL_ARGUMENT);
 	iterate_map(game, draw_basic_tile);
 	iterate_map(game, draw_special_tile);
 }
