@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 09:13:47 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 14:39:10 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/24 14:49:20 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,7 @@ static int	check_collectible(t_game *game, int x, int y)
 
 	c = game->map.grid[y][x];
 	if (c == COLLECTIBLE)
-	{
 		game->map.collectibles++;
-	}
 	return (0);
 }
 
