@@ -6,18 +6,12 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 09:13:47 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 14:49:20 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/24 14:50:30 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int  check_empty_map(t_game *game)
-{
-	if (game->map.height == 0 || game->map.width == 0)
-		return (ERROR_EMPTY_MAP);
-	return (0);
-}
 static int check_valid_character(t_game *game, int x, int y)
 {
 	char	c;
@@ -93,9 +87,8 @@ int	validate_map(t_game *game)
 {
 	int	status;
 	
-	status = check_empty_map(game);
-	if (status < 0)
-		return (status);
+	if (game->map.height == 0 || game->map.width == 0)
+		return (ERROR_EMPTY_MAP);
 	status = iterate_map(game, check_valid_wall);
 	if (status < 0)
 		return (status);
