@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:12:07 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 15:42:35 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/24 15:45:18 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int	init_game(t_game *game, char *map_file)
 	game->map.collectibles = 0;
 	game->exit.x = 0;
 	game->exit.y = 0;
+	game->player.x = 0;
+	game->player.y = 0;
 	status = load_texture(game);
 	if (status < 0)
 		return (status);
