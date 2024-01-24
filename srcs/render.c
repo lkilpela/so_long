@@ -1,19 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_map.c                                         :+:      :+:    :+:   */
+/*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 17:40:34 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/23 22:00:21 by lkilpela         ###   ########.fr       */
+/*   Created: 2024/01/24 09:12:37 by lkilpela          #+#    #+#             */
+/*   Updated: 2024/01/24 10:08:28 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-// Function pointer type declaration. 
-typedef int (*tile_function)(t_game *, int, int);
 
 static int	draw_special_tile(t_game *game, int x, int y)
 {
@@ -49,10 +46,11 @@ static int	draw_basic_tile(t_game *game, int x, int y)
 	return (0);
 }
 
-void	iterate_map(t_game *game, tile_function func)
+int	iterate_map(t_game *game, tile_function func)
 {
-	int		x;
-	int		y;
+	int	x;
+	int	y;
+	int	status;
 
 	if (!game)
 		return;
@@ -62,12 +60,14 @@ void	iterate_map(t_game *game, tile_function func)
 		x = 0;
 		while (x < game->map.width)
 		{
-			if(func(game, x, y) < 0)
-				return;
+			status = func(game, x, y);
+			if(status < 0)
+				return (status);
 			x++;
 		}
 		y++;
 	}
+	return (0);
 }
 
 // Draw the entire game map

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/23 21:44:55 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/24 10:08:51 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,15 @@ typedef struct s_game
 	int			tile_size;
 }				t_game;
 
+// Function pointer type declaration. 
+typedef int (*tile_function)(t_game *, int, int);
+
 int		load_map(t_game *game, char *map_file);
 int		init_game(t_game *game, char *map_file);
 void	free_game(t_game *game);
 void	ft_error(void);
 void	init_player_movement(t_game *game);
-void	draw_map(t_game *game);
+void	render(t_game *game);
+int		iterate_map(t_game *game, tile_function func)
 
 #endif
