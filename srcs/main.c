@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/24 23:44:45 by lkilpela          #+#    #+#             */
+/*   Updated: 2024/01/24 23:47:58 by lkilpela         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 static void	check_argument(int argc, char **argv)
@@ -8,7 +20,7 @@ static void	check_argument(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		print_error(ERROR_NO_MAP_FILE);
+		print_error (ERROR_NO_MAP_FILE);
 		exit (ERROR_NO_MAP_FILE);
 	}
 	filename = argv[1];
@@ -20,9 +32,10 @@ static void	check_argument(int argc, char **argv)
 		exit (ERROR_INVALID_MAP_FILE);
 	}
 }
-void    free_game(t_game *game)
+
+void	free_game(t_game *game)
 {
-	int y;
+	int	y;
 
 	y = 0;
 	while (y < game->map.height)
@@ -40,20 +53,21 @@ int	main(int argc, char **argv)
 
 	check_argument(argc, argv);
 	game.mlx_ptr = mlx_init();
-	game.win_ptr = mlx_new_window(game.mlx_ptr, MAX_DIMENSION, MAX_DIMENSION,
-		"so_long");
+	game.win_ptr = mlx_new_window(game.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT,
+			"so_long");
 	if (!game.win_ptr)
 	{
 		mlx_destroy_display(game.mlx_ptr);
 		free(game.mlx_ptr);
 		exit(EXIT_FAILURE);
 	}
-	if ((status = init_game(&game, argv[1])) < 0)
+	status = init_game(&game, argv[1]);
+	if (status < 0)
 	{
-		print_error(status);
+		print_error (status);
 		return (status);
 	}
-	init_player_movement(&game);	
+	init_player_movement(&game);
 	render(&game);
 	mlx_loop(mlx);
 	mlx_terminate(mlx);
