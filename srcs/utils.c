@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:51:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 13:54:20 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/24 14:18:28 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,12 @@ const char *error_msgs[] = { "No error.",
 "Error: Invalid map dimensions.",
 "Error: Invalid map boundary. The map should be surrounded by walls.",
 "Error: Invalid player count. The map should contain exactly one player character.",
-"Error: No exit. The map should contain at least one exit.",
+"Error: Invalid exit count. The map should contain at least one exit.",
 "Error: No map file provided. Please provide a .ber map file as the first argument.",
-"Error: Invalid map file. The map file must have a .ber extension."
+"Error: Invalid map file. The map file must have a .ber extension.",
+"Error: No player found in the map.",
+"Error: No exit found in the map.",
+"Error: No collectible found in the map."
 };
 
 // Exit the program as failure.

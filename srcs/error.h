@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 13:42:23 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 13:54:09 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/24 14:18:10 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,13 @@
 # define ERROR_INVALID_DIMENSIONS -8
 # define ERROR_INVALID_BOUNDARY -9
 # define ERROR_INVALID_PLAYER_COUNT -10
-# define ERROR_NO_EXIT -11
+# define ERROR_INVALID_EXIT_COUNT-11
 # define ERROR_NO_MAP_FILE -12
 # define ERROR_INVALID_MAP_FILE -13
-# define LAST_ERROR -14
+# define ERROR_NO_PLAYER -14
+# define ERROR_NO_EXIT -15
+# define ERROR_NO_COLLECTIBLE -16
+# define LAST_ERROR -17
 
 
 #endif

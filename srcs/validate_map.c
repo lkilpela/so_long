@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 09:13:47 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 13:42:04 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/24 14:18:00 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static int check_exit(t_game *game, int x, int y)
 			game->exit.y = y;
 		}
 		else
-			return (ERROR_NO_EXIT);
+			return (ERROR_INVALID_EXIT_COUNT);
 	}
 	return (0);
 }
@@ -95,8 +95,12 @@ int	validate_map(t_game *game)
 	status = iterate_map(game, check_single_player);
 	if (status < 0)
 		return (status);
+	if (game->player.x == 0 && game->player.y == 0)
+		return (ERROR_NO_PLAYER);
 	status = iterate_map(game, check_exit);
 	if (status < 0)
 		return (status);
+	if (game->exit.x == 0 && game->exit.y == 0)
+		return (ERROR_NO_EXIT);
 	return (0);
 }
