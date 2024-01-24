@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 13:51:52 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/24 14:36:56 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_map
 	char		**grid;
 	int			width;
 	int			height;
+	int 		collectibles;
 }				t_map;
 
 typedef struct s_tiles

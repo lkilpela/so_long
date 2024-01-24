@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:34:51 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 13:43:42 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/24 14:37:26 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int init_game(t_game *game, char *map_file)
 	game->map.grid = 0;
 	game->map.height = 0;
 	game->map.width = 0;
+	game->map.collectibles = 0;
 	game->exit.x = 0;
 	game->exit.y = 0;
 	mlx_texture_t* apple = mlx_load_png("assets/item.png");

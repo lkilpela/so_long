@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 09:13:47 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 14:18:00 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/24 14:39:10 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,18 @@ static int check_exit(t_game *game, int x, int y)
 	return (0);
 }
 
+static int	check_collectible(t_game *game, int x, int y)
+{
+	char	c;
+
+	c = game->map.grid[y][x];
+	if (c == COLLECTIBLE)
+	{
+		game->map.collectibles++;
+	}
+	return (0);
+}
+
 int	validate_map(t_game *game)
 {
 	int	status;
@@ -102,5 +114,8 @@ int	validate_map(t_game *game)
 		return (status);
 	if (game->exit.x == 0 && game->exit.y == 0)
 		return (ERROR_NO_EXIT);
+	iterate_map(game, check_collectible);
+	if (game->map.collectibles == 0)
+		return (ERROR_NO_COLLECTIBLE);
 	return (0);
 }
