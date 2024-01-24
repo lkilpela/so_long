@@ -6,33 +6,34 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:51:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 14:18:28 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/24 14:26:46 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-const char *error_msgs[] = { "No error.",
-                    "Error: Null argument provided.",
-                    "Error: Opening file.",
-"Error: Allocating memory for map grid.",
-"Error: Reading map file.",
-"Error: Validating map.",
-"Error: Empty map.",
-"Error: Invalid character in map.",
-"Error: Invalid map dimensions.",
-"Error: Invalid map boundary. The map should be surrounded by walls.",
-"Error: Invalid player count. The map should contain exactly one player character.",
-"Error: Invalid exit count. The map should contain at least one exit.",
-"Error: No map file provided. Please provide a .ber map file as the first argument.",
-"Error: Invalid map file. The map file must have a .ber extension.",
-"Error: No player found in the map.",
-"Error: No exit found in the map.",
-"Error: No collectible found in the map."
+const char	*g_error_msgs[] = {
+	"No error.",
+	"Error: Null argument provided.",
+	"Error: Opening file.",
+	"Error: Allocating memory for map grid.",
+	"Error: Reading map file.",
+	"Error: Validating map.",
+	"Error: Empty map.",
+	"Error: Invalid character in map.",
+	"Error: Invalid map dimensions.",
+	"Error: Invalid map boundary. The map should be surrounded by walls.",
+	"Error: Invalid player count. The map should contain exactly one player.",
+	"Error: Invalid exit count. The map should contain at least one exit.",
+	"Error: No file provided. Please provide a .ber file as the 1st	argument.",
+	"Error: Invalid map file. The map file must have a .ber extension.",
+	"Error: No player found in the map.",
+	"Error: No exit found in the map.",
+	"Error: No collectible found in the map."
 };
 
 // Exit the program as failure.
-void ft_error(void)
+void	ft_error(void)
 {
 	fprintf(stderr, "%s", mlx_strerror(mlx_errno));
 	exit(EXIT_FAILURE);
@@ -40,7 +41,7 @@ void ft_error(void)
 
 void	print_error(int err)
 {
-	if(err < 0 && err > LAST_ERROR)	
+	if (err < 0 && err > LAST_ERROR)
 		printf("%s\n", error_msgs[-err]);
 	else
 		printf("Unknown error\n");
