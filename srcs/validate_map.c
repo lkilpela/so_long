@@ -6,41 +6,41 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 09:13:47 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 14:50:30 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/24 14:54:21 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int check_valid_character(t_game *game, int x, int y)
+static int	check_valid_character(t_game *game, int x, int y)
 {
 	char	c;
-	
+
 	c = game->map.grid[y][x];
-	if (c != OPEN_SPACE && c != WALL && c != COLLECTIBLE 
+	if (c != OPEN_SPACE && c != WALL && c != COLLECTIBLE
 		&& c != EXIT && c != PLAYER)
 		return (ERROR_INVALID_CHARACTER);
 	return (0);
 }
 
-static int check_valid_wall(t_game *game, int x, int y)
+static int	check_valid_wall(t_game *game, int x, int y)
 {
 	char	c;
-	
+
 	c = game->map.grid[y][x];
-	if (y == 0 || y == game->map.height - 1 || x == 0 ||
-				x == game->map.width - 1)
+	if (y == 0 || y == game->map.height - 1 || x == 0
+		|| x == game->map.width - 1)
 	{
 		if (c != WALL)
 			return (ERROR_INVALID_BOUNDARY);
 	}
-	return (0);		
+	return (0);
 }
 
 static int	check_single_player(t_game *game, int x, int y)
 {
 	char	c;
-	
+
 	c = game->map.grid[y][x];
 	if (c == PLAYER)
 	{
@@ -55,7 +55,7 @@ static int	check_single_player(t_game *game, int x, int y)
 	return (0);
 }
 
-static int check_exit(t_game *game, int x, int y)
+static int	check_exit(t_game *game, int x, int y)
 {
 	char	c;
 
@@ -86,7 +86,7 @@ static int	check_collectible(t_game *game, int x, int y)
 int	validate_map(t_game *game)
 {
 	int	status;
-	
+
 	if (game->map.height == 0 || game->map.width == 0)
 		return (ERROR_EMPTY_MAP);
 	status = iterate_map(game, check_valid_wall);
