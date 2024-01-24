@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:34:51 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 10:38:43 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/24 11:08:18 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,18 @@ int init_game(t_game *game, char *map_file)
 		perror(ERROR_INVALID_MAP_MSG);
 		return (ERROR_INVALID_MAP);
 	}
+	if (validate_map(game) < 0)
+	{
+		perror(ERROR_INVALID_MAP_MSG);
+		return (ERROR_INVALID_MAP);
+	}
 	int a = 1024/game->map.width;
 	int b = 1024/game->map.height;
 	if(a < b) 
 		game->tile_size = a;
 	else	
 		game->tile_size = b;
-		game->tiles.collectible = mlx_texture_to_image(game->mlx_ptr, apple);
+	game->tiles.collectible = mlx_texture_to_image(game->mlx_ptr, apple);
 	mlx_resize_image(game->tiles.collectible, game->tile_size, game->tile_size);
 	game->tiles.exit = mlx_texture_to_image(game->mlx_ptr, castledoor);
 	mlx_resize_image(game->tiles.exit, game->tile_size, game->tile_size);
