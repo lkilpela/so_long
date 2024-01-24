@@ -1,13 +1,5 @@
-#include "srcs/so_long.h"
+#include "so_long.h"
 
-
-//void	hook(void *param)
-//{
-//	t_game* game = param;
-
-	// Print the window width and height.
-	//printf("WIDTH: %d | HEIGHT: %d\n", game->mlx_ptr->width, game->mlx_ptr->height);
-//}
 int	main(int argc, char **argv)
 {
 	t_game game;
