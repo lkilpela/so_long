@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:12:07 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 15:45:18 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/24 23:05:27 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 static int	load_texture(t_game *game)
 {
-	mlx_texture_t	*apple;
-	mlx_texture_t	*castledoor;
-	mlx_texture_t	*fox;
-	mlx_texture_t	*tree;
+	mlx_texture_t	*collectible;
+	mlx_texture_t	*exit;
+	mlx_texture_t	*player;
+	mlx_texture_t	*wall;
 	mlx_texture_t	*floor;
 
-	apple = mlx_load_png("assets/collectible.png");
-	castledoor = mlx_load_png("assets/exit.png");
-	fox = mlx_load_png("assets/player.png");
-	tree = mlx_load_png("assets/wall.png");
+	collectible = mlx_load_png("assets/collectible.png");
+	exit = mlx_load_png("assets/exit.png");
+	player = mlx_load_png("assets/player.png");
+	wall = mlx_load_png("assets/wall.png");
 	floor = mlx_load_png("assets/floor.png");
-	if (!apple || !castledoor || !fox || !tree || !floor)
+	if (!collectible || !exit || !player || !wall || !floor)
 		return (ERROR_LOAD_TEXTURE);
-	game->tiles.collectible = mlx_texture_to_image(game->mlx_ptr, apple);
-	game->tiles.exit = mlx_texture_to_image(game->mlx_ptr, castledoor);
-	game->tiles.player = mlx_texture_to_image(game->mlx_ptr, fox);
-	game->tiles.wall = mlx_texture_to_image(game->mlx_ptr, tree);
+	game->tiles.collectible = mlx_texture_to_image(game->mlx_ptr, collectible);
+	game->tiles.exit = mlx_texture_to_image(game->mlx_ptr, exit);
+	game->tiles.player = mlx_texture_to_image(game->mlx_ptr, player);
+	game->tiles.wall = mlx_texture_to_image(game->mlx_ptr, wall);
 	game->tiles.floor = mlx_texture_to_image(game->mlx_ptr, floor);
 	return (0);
 }

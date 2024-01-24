@@ -40,7 +40,7 @@ int	main(int argc, char **argv)
 	int		status;
 
 	check_argument(argc, argv);
-	mlx = mlx_init(WIDTH, HEIGHT, "so_long", true);
+	mlx = mlx_init(MAX_DIMENSION, MAX_DIMENSION, "so_long", true);
 	if (!mlx)
 		ft_error();
 	game.mlx_ptr = mlx;
