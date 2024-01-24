@@ -36,14 +36,18 @@ void    free_game(t_game *game)
 int	main(int argc, char **argv)
 {
 	t_game	game;
-	mlx_t	*mlx;
 	int		status;
 
 	check_argument(argc, argv);
-	mlx = mlx_init(MAX_DIMENSION, MAX_DIMENSION, "so_long", true);
-	if (!mlx)
-		ft_error();
-	game.mlx_ptr = mlx;
+	game.mlx_ptr = mlx_init();
+	game.win_ptr = mlx_new_window(game.mlx_ptr, MAX_DIMENSION, MAX_DIMENSION,
+		"so_long");
+	if (!game.win_ptr)
+	{
+		mlx_destroy_display(game.mlx_ptr);
+		free(game.mlx_ptr);
+		exit(EXIT_FAILURE);
+	}
 	if ((status = init_game(&game, argv[1])) < 0)
 	{
 		print_error(status);
