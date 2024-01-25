@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 23:44:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 23:47:58 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/25 08:23:29 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,11 @@ int	main(int argc, char **argv)
 	int		status;
 
 	check_argument(argc, argv);
-	game.mlx_ptr = mlx_init();
-	game.win_ptr = mlx_new_window(game.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT,
-			"so_long");
-	if (!game.win_ptr)
-	{
-		mlx_destroy_display(game.mlx_ptr);
-		free(game.mlx_ptr);
-		exit(EXIT_FAILURE);
-	}
+	game.mlx_ptr = mlx_init(WINDOW_WIDTH, WINDOW_HEIGHT, "so_long", true);
+	//game.win_ptr = mlx_new_window(game.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT,
+	//		"so_long");
+	if (!game.mlx_ptr)
+		ft_error();
 	status = init_game(&game, argv[1]);
 	if (status < 0)
 	{
@@ -69,8 +65,8 @@ int	main(int argc, char **argv)
 	}
 	init_player_movement(&game);
 	render(&game);
-	mlx_loop(mlx);
-	mlx_terminate(mlx);
+	mlx_loop(game.mlx_ptr);
 	free_game(&game);
+	mlx_terminate(game.mlx_ptr);	
 	return (EXIT_SUCCESS);
 }
