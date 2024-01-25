@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/25 08:24:34 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/25 14:19:01 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 # define PLAYER 'P'
 
 # define MAX_DIMENSION 1024
-# define WINDOW_WIDTH 1024
-# define WINDOW_HEIGHT 1024
+# define WINDOW_WIDTH 1366
+# define WINDOW_HEIGHT 768
 
 typedef struct s_position
 {

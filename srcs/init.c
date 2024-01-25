@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:12:07 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 23:20:23 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/25 14:10:44 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ static int	load_texture(t_game *game)
 	return (0);
 }
 
-static void	resize_game_tiles(t_game *game)
+static void	resize_game_tiles(t_game *game, int width, int height)
 {
 	int	tile_width;
 	int	tile_height;
 
-	tile_width = MAX_DIMENSION / game->map.width;
-	tile_height = MAX_DIMENSION / game->map.height;
+	tile_width = width / game->map.width;
+	tile_height = height / game->map.height;
 	if (tile_width < tile_height)
 		game->tile_size = tile_width;
 	else
@@ -51,6 +51,20 @@ static void	resize_game_tiles(t_game *game)
 	mlx_resize_image(game->tiles.player, game->tile_size, game->tile_size);
 	mlx_resize_image(game->tiles.wall, game->tile_size, game->tile_size);
 	mlx_resize_image(game->tiles.floor, game->tile_size, game->tile_size);
+}
+static void	resize_window(int width, int height, void *param)
+{
+	t_game *game;
+	
+	game = (t_game *)param;
+	mlx_delete_image(game->mlx_ptr, game->tiles.collectible);
+	mlx_delete_image(game->mlx_ptr, game->tiles.exit);
+	mlx_delete_image(game->mlx_ptr, game->tiles.player);
+	mlx_delete_image(game->mlx_ptr, game->tiles.wall);
+	mlx_delete_image(game->mlx_ptr, game->tiles.floor);
+	load_texture(game);
+	resize_game_tiles(game, width, height);
+	render(game);
 }
 
 int	init_game(t_game *game, char *map_file)
@@ -76,6 +90,7 @@ int	init_game(t_game *game, char *map_file)
 	status = validate_map(game);
 	if (status < 0)
 		return (status);
-	resize_game_tiles(game);
+	resize_game_tiles(game, game->mlx_ptr->width, game->mlx_ptr->height);
+	mlx_resize_hook(game->mlx_ptr, resize_window, game);
 	return (0);
 }

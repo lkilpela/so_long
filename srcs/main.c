@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 23:44:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/25 08:23:29 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/25 09:41:55 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,6 @@ int	main(int argc, char **argv)
 
 	check_argument(argc, argv);
 	game.mlx_ptr = mlx_init(WINDOW_WIDTH, WINDOW_HEIGHT, "so_long", true);
-	//game.win_ptr = mlx_new_window(game.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT,
-	//		"so_long");
 	if (!game.mlx_ptr)
 		ft_error();
 	status = init_game(&game, argv[1]);
