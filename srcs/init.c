@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:12:07 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/25 14:10:44 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/25 14:41:17 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,11 @@ static void	resize_game_tiles(t_game *game, int width, int height)
 	mlx_resize_image(game->tiles.wall, game->tile_size, game->tile_size);
 	mlx_resize_image(game->tiles.floor, game->tile_size, game->tile_size);
 }
+
 static void	resize_window(int width, int height, void *param)
 {
-	t_game *game;
-	
+	t_game	*game;
+
 	game = (t_game *)param;
 	mlx_delete_image(game->mlx_ptr, game->tiles.collectible);
 	mlx_delete_image(game->mlx_ptr, game->tiles.exit);
