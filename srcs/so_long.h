@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/26 12:10:57 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/26 13:54:37 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,14 @@ void	free_game(t_game *game);
 void	ft_error(void);
 void	key_hook(mlx_key_data_t keydata, void *param);
 void	init_player_movement(t_game *game);
+int		init_game_textures(t_game *game);
+void	resize_game_tiles(t_game *game, int width, int height);
 void	render(t_game *game);
 int		iterate_map(t_game *game, t_tile_function func);
 int		validate_map(t_game *game);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 void	print_error(int err);
+void	resize_window(int width, int height, void *param);
 
 #endif

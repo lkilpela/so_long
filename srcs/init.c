@@ -6,13 +6,13 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:12:07 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/26 12:11:59 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/26 13:55:34 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	init_game_textures(t_game *game)
+int	init_game_textures(t_game *game)
 {
 	mlx_texture_t	*collectible;
 	mlx_texture_t	*exit;
@@ -35,7 +35,7 @@ static int	init_game_textures(t_game *game)
 	return (0);
 }
 
-static void	resize_game_tiles(t_game *game, int width, int height)
+void	resize_game_tiles(t_game *game, int width, int height)
 {
 	int	tile_width;
 	int	tile_height;
@@ -52,26 +52,8 @@ static void	resize_game_tiles(t_game *game, int width, int height)
 	mlx_resize_image(game->tiles.wall, game->tile_size, game->tile_size);
 	mlx_resize_image(game->tiles.floor, game->tile_size, game->tile_size);
 }
-
-static void	resize_window(int width, int height, void *param)
+static void init_game_state(t_game *game)
 {
-	t_game	*game;
-
-	game = (t_game *)param;
-	mlx_delete_image(game->mlx_ptr, game->tiles.collectible);
-	mlx_delete_image(game->mlx_ptr, game->tiles.exit);
-	mlx_delete_image(game->mlx_ptr, game->tiles.player);
-	mlx_delete_image(game->mlx_ptr, game->tiles.wall);
-	mlx_delete_image(game->mlx_ptr, game->tiles.floor);
-	init_game_textures(game);
-	resize_game_tiles(game, width, height);
-	render(game);
-}
-
-int	init_game_state(t_game *game, char *map_file)
-{
-	int	status;
-
 	game->collectibles_count = 0;
 	game->move_count = 0;
 	game->map.grid = 0;
@@ -82,6 +64,12 @@ int	init_game_state(t_game *game, char *map_file)
 	game->exit.y = 0;
 	game->player.x = 0;
 	game->player.y = 0;
+}
+
+int	init_game_state(t_game *game, char *map_file)
+{
+	int	status;
+
 	status = init_game_textures(game);
 	if (status < 0)
 		return (status);
