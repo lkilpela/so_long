@@ -23,6 +23,7 @@ $(NAME): $(OBJS)
 clean:
 	@rm -rf $(OBJS)
 	@rm -rf $(LIBMLX)/build
+	@rm -rf $(LIBMLX)/src/*.o
 
 fclean: clean
 	@rm -rf $(NAME)
