@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/26 13:59:23 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:16:20 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,11 @@ typedef struct s_game
 typedef int	(*t_tile_function)(t_game *, int, int);
 
 int		load_map(t_game *game, char *map_file);
-int		prepare_game_state(t_game *game, char *map_file);
+int		prepare_game_state(t_game *game);
 void	free_game(t_game *game);
 void	ft_error(void);
 void	key_hook(mlx_key_data_t keydata, void *param);
+void	calculate_tile_size(t_game *game, int width, int height);
 void	init_player_movement(t_game *game);
 int		init_game_textures(t_game *game);
 void	resize_game_tiles(t_game *game, int width, int height);

@@ -11,6 +11,7 @@ SRCS = srcs/main.c \
 	srcs/utils.c \
 	srcs/render.c \
 	srcs/validate_map.c \
+	srcs/window.c \
 	get_next_line/get_next_line_utils.c \
 	get_next_line/get_next_line.c
 OBJS = $(SRCS:%.c=%.o)
