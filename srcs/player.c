@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:25:02 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/26 10:14:57 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/26 10:25:21 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,32 +28,6 @@ static void	handle_player_movement(t_game *game, int move_x, int move_y)
 		game->move_count++;
 		printf("Number of movements: %d\n", game->move_count);
 	}
-}
-
-static void	key_hook(mlx_key_data_t keydata, void *param)
-{
-	t_game	*game;
-	int		move_x;
-	int		move_y;
-
-	move_x = 0;
-	move_y = 0;
-	game = param;
-	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
-		mlx_close_window(game->mlx_ptr);
-	if ((keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_UP)
-		&& keydata.action == MLX_PRESS)
-		move_y = -1;
-	if ((keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_DOWN)
-		&& keydata.action == MLX_PRESS)
-		move_y = 1;
-	if ((keydata.key == MLX_KEY_A || keydata.key == MLX_KEY_LEFT)
-		&& keydata.action == MLX_PRESS)
-		move_x = -1;
-	if ((keydata.key == MLX_KEY_D || keydata.key == MLX_KEY_RIGHT)
-		&& keydata.action == MLX_PRESS)
-		move_x = 1;
-	handle_player_movement(game, move_x, move_y);
 }
 
 static void	handle_collectibles(t_game *game)
@@ -90,14 +64,40 @@ static void	handle_exit(t_game *game)
 		mlx_close_window(game->mlx_ptr);
 	}
 }
-
-void	init_and_handle_game(t_game *game, int move_x, int move_y)
+static void	key_hook(mlx_key_data_t keydata, void *param)
 {
-	mlx_key_hook(game->mlx_ptr, key_hook, game);
+	t_game	*game;
+	int		move_x;
+	int		move_y;
+
+	move_x = 0;
+	move_y = 0;
+	game = param;
+	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
+		mlx_close_window(game->mlx_ptr);
+	if ((keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_UP)
+		&& keydata.action == MLX_PRESS)
+		move_y = -1;
+	if ((keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_DOWN)
+		&& keydata.action == MLX_PRESS)
+		move_y = 1;
+	if ((keydata.key == MLX_KEY_A || keydata.key == MLX_KEY_LEFT)
+		&& keydata.action == MLX_PRESS)
+		move_x = -1;
+	if ((keydata.key == MLX_KEY_D || keydata.key == MLX_KEY_RIGHT)
+		&& keydata.action == MLX_PRESS)
+		move_x = 1;
 	if (move_x != 0 || move_y != 0)
 	{
 		handle_player_movement(game, move_x, move_y);
 		handle_collectibles(game);
 		handle_exit(game);
 	}
+}
+
+
+
+void	init_player_movement(t_game *game)
+{
+	mlx_key_hook(game->mlx_ptr, key_hook, game);
 }
