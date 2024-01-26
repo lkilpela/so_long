@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:12:07 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/26 09:39:14 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/26 10:38:32 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,9 @@ int	init_game_state(t_game *game, char *map_file)
 	resize_game_tiles(game, game->mlx_ptr->width, game->mlx_ptr->height);
 	mlx_resize_hook(game->mlx_ptr, resize_window, game);
 	return (0);
+}
+
+void	init_player_movement(t_game *game)
+{
+	mlx_key_hook(game->mlx_ptr, key_hook, game);
 }

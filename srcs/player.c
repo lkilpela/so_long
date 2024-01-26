@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:25:02 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/26 10:25:21 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/26 10:40:54 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,8 @@ static void	handle_exit(t_game *game)
 		mlx_close_window(game->mlx_ptr);
 	}
 }
-static void	key_hook(mlx_key_data_t keydata, void *param)
+static void	check_keys(mlx_key_data_t keydata, int *move_x, int *move_y)
 {
-	t_game	*game;
-	int		move_x;
-	int		move_y;
-
-	move_x = 0;
-	move_y = 0;
-	game = param;
-	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
-		mlx_close_window(game->mlx_ptr);
 	if ((keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_UP)
 		&& keydata.action == MLX_PRESS)
 		move_y = -1;
@@ -87,17 +78,24 @@ static void	key_hook(mlx_key_data_t keydata, void *param)
 	if ((keydata.key == MLX_KEY_D || keydata.key == MLX_KEY_RIGHT)
 		&& keydata.action == MLX_PRESS)
 		move_x = 1;
+}
+
+void	key_hook(mlx_key_data_t keydata, void *param)
+{
+	t_game	*game;
+	int		move_x;
+	int		move_y;
+
+	move_x = 0;
+	move_y = 0;
+	game = param;
+	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
+		mlx_close_window(game->mlx_ptr);
+	check_keys(keydata, &move_x, &move_y);
 	if (move_x != 0 || move_y != 0)
 	{
 		handle_player_movement(game, move_x, move_y);
 		handle_collectibles(game);
 		handle_exit(game);
 	}
-}
-
-
-
-void	init_player_movement(t_game *game)
-{
-	mlx_key_hook(game->mlx_ptr, key_hook, game);
 }

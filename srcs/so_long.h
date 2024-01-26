@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/26 10:22:15 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/26 10:39:11 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int		load_map(t_game *game, char *map_file);
 int		init_game_state(t_game *game, char *map_file);
 void	free_game(t_game *game);
 void	ft_error(void);
+void	key_hook(mlx_key_data_t keydata, void *param);
 void	init_player_movement(t_game *game);
 void	render(t_game *game);
 int		iterate_map(t_game *game, tile_function func);
