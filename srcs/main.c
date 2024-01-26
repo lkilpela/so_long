@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 23:44:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/26 10:05:31 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/26 10:17:02 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	main(int argc, char **argv)
 		print_error (status);
 		return (status);
 	}
-	init_and_handle_game(&game);
+	init_and_handle_game(&game, move_x, move_y);
 	render(&game);
 	mlx_loop(game.mlx_ptr);
 	free_game(&game);
