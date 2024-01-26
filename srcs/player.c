@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:25:02 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/26 10:40:54 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/26 10:41:49 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ static void	handle_exit(t_game *game)
 		mlx_close_window(game->mlx_ptr);
 	}
 }
+
 static void	check_keys(mlx_key_data_t keydata, int *move_x, int *move_y)
 {
 	if ((keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_UP)
