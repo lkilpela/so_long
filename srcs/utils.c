@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:51:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/24 15:31:28 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/26 12:11:21 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	return (0);
 }
 
-int	iterate_map(t_game *game, tile_function func)
+int	iterate_map(t_game *game, t_tile_function func)
 {
 	int	x;
 	int	y;

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/26 10:39:11 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/26 12:10:57 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_map
 	char		**grid;
 	int			width;
 	int			height;
-	int 		collectibles;
+	int			collectibles;
 }				t_map;
 
 typedef struct s_tiles
@@ -69,7 +69,7 @@ typedef struct s_game
 }				t_game;
 
 // Function pointer type declaration. 
-typedef int (*tile_function)(t_game *, int, int);
+typedef int	(*t_tile_function)(t_game *, int, int);
 
 int		load_map(t_game *game, char *map_file);
 int		init_game_state(t_game *game, char *map_file);
@@ -78,11 +78,10 @@ void	ft_error(void);
 void	key_hook(mlx_key_data_t keydata, void *param);
 void	init_player_movement(t_game *game);
 void	render(t_game *game);
-int		iterate_map(t_game *game, tile_function func);
+int		iterate_map(t_game *game, t_tile_function func);
 int		validate_map(t_game *game);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 void	print_error(int err);
-
 
 #endif
