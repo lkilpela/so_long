@@ -6,13 +6,13 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:12:07 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/25 14:41:17 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/26 09:39:14 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	load_texture(t_game *game)
+static int	init_game_textures(t_game *game)
 {
 	mlx_texture_t	*collectible;
 	mlx_texture_t	*exit;
@@ -63,12 +63,12 @@ static void	resize_window(int width, int height, void *param)
 	mlx_delete_image(game->mlx_ptr, game->tiles.player);
 	mlx_delete_image(game->mlx_ptr, game->tiles.wall);
 	mlx_delete_image(game->mlx_ptr, game->tiles.floor);
-	load_texture(game);
+	init_game_textures(game);
 	resize_game_tiles(game, width, height);
 	render(game);
 }
 
-int	init_game(t_game *game, char *map_file)
+int	init_game_state(t_game *game, char *map_file)
 {
 	int	status;
 
@@ -82,7 +82,7 @@ int	init_game(t_game *game, char *map_file)
 	game->exit.y = 0;
 	game->player.x = 0;
 	game->player.y = 0;
-	status = load_texture(game);
+	status = init_game_textures(game);
 	if (status < 0)
 		return (status);
 	status = load_map(game, map_file);

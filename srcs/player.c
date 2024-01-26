@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:25:02 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/26 09:01:03 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/26 10:14:57 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,48 +23,14 @@ static void	handle_player_movement(t_game *game, int move_x, int move_y)
 	{
 		game->tiles.player->instances[0].y += move_y * game->tile_size;
 		game->tiles.player->instances[0].x += move_x * game->tile_size;
-		new_y++;
-		new_x++;
+		game->player.y = new_y;
+		game->player.x = new_x;
 		game->move_count++;
 		printf("Number of movements: %d\n", game->move_count);
 	}
 }
 
-static void	handle_game_interaction(t_game *game)
-{
-	int		player_pos;
-	bool	is_same_x;
-	bool	is_same_y;
-	size_t	i;
-
-	player_pos = game->map.grid[game->player.y][game->player.x];
-	is_same_x = game->tiles.collectible->instances[i].x == game->player.x * game->tile_size;
-	is_same_y = game->tiles.collectible->instances[i].y == game->player.y * game->tile_size;
-	if (player_pos == COLLECTIBLE)
-	{
-		i = 0;
-		while (i < game->tiles.collectible->count)
-		{
-			if (is_same_x && is_same_x)
-			{
-				if (game->tiles.collectible->instances[i].enabled)
-				{
-					game->collectibles_count++;
-					printf("Heart collected: %d\n", game->collectibles_count);
-					game->tiles.collectible->instances[i].enabled = 0;
-				}
-			}
-			++i;
-		}
-	}
-	if (player_pos == EXIT)
-	{
-		printf("Congratulations, You Win!!!\n");
-		mlx_close_window(game->mlx_ptr);
-	}
-}
-
-void	key_hook(mlx_key_data_t keydata, void *param)
+static void	key_hook(mlx_key_data_t keydata, void *param)
 {
 	t_game	*game;
 	int		move_x;
@@ -87,14 +53,51 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 	if ((keydata.key == MLX_KEY_D || keydata.key == MLX_KEY_RIGHT)
 		&& keydata.action == MLX_PRESS)
 		move_x = 1;
-	if (move_x != 0 || move_y != 0)
+	handle_player_movement(game, move_x, move_y);
+}
+
+static void	handle_collectibles(t_game *game)
+{
+	size_t	i;
+
+	if (game->map.grid[game->player.y][game->player.x] == COLLECTIBLE)
 	{
-		handle_player_movement(game, move_x, move_y);
-		handle_game_interaction(game);
+		i = 0;
+		while (i < game->tiles.collectible->count)
+		{
+			if (game->tiles.collectible->instances[i].x
+				== game->player.x * game->tile_size
+				&& game->tiles.collectible->instances[i].y
+				== game->player.y * game->tile_size)
+			{
+				if (game->tiles.collectible->instances[i].enabled)
+				{
+					game->collectibles_count++;
+					printf("Heart collected: %d\n", game->collectibles_count);
+					game->tiles.collectible->instances[i].enabled = 0;
+				}
+			}
+			i++;
+		}
 	}
 }
 
-void	init_player_movement(t_game *game)
+static void	handle_exit(t_game *game)
+{
+	if (game->map.grid[game->player.y][game->player.x] == EXIT)
+	{
+		printf("Congratulations, you exited!!!\n");
+		mlx_close_window(game->mlx_ptr);
+	}
+}
+
+void	init_and_handle_game(t_game *game, int move_x, int move_y)
 {
 	mlx_key_hook(game->mlx_ptr, key_hook, game);
+	if (move_x != 0 || move_y != 0)
+	{
+		handle_player_movement(game, move_x, move_y);
+		handle_collectibles(game);
+		handle_exit(game);
+	}
 }

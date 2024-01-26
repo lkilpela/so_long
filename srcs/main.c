@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 23:44:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/25 09:41:55 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/26 10:05:31 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ int	main(int argc, char **argv)
 	game.mlx_ptr = mlx_init(WINDOW_WIDTH, WINDOW_HEIGHT, "so_long", true);
 	if (!game.mlx_ptr)
 		ft_error();
-	status = init_game(&game, argv[1]);
+	status = init_game_state(&game, argv[1]);
 	if (status < 0)
 	{
 		print_error (status);
 		return (status);
 	}
-	init_player_movement(&game);
+	init_and_handle_game(&game);
 	render(&game);
 	mlx_loop(game.mlx_ptr);
 	free_game(&game);
