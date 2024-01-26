@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:12:07 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/26 14:13:15 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:26:46 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	calculate_tile_size(t_game *game, int width, int height)
 	else
 		game->tile_size = tile_height;
 }
+
 void	resize_game_tiles(t_game *game, int width, int height)
 {
 	calculate_tile_size(game, width, height);
