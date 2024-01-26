@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:12:07 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/26 13:55:34 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:02:24 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ void	resize_game_tiles(t_game *game, int width, int height)
 	mlx_resize_image(game->tiles.wall, game->tile_size, game->tile_size);
 	mlx_resize_image(game->tiles.floor, game->tile_size, game->tile_size);
 }
-static void init_game_state(t_game *game)
+
+void	init_game_state(t_game *game)
 {
 	game->collectibles_count = 0;
 	game->move_count = 0;
@@ -66,17 +67,11 @@ static void init_game_state(t_game *game)
 	game->player.y = 0;
 }
 
-int	init_game_state(t_game *game, char *map_file)
+int	prepare_game_state(t_game *game, char *map_file)
 {
 	int	status;
 
 	status = init_game_textures(game);
-	if (status < 0)
-		return (status);
-	status = load_map(game, map_file);
-	if (status < 0)
-		return (status);
-	status = validate_map(game);
 	if (status < 0)
 		return (status);
 	resize_game_tiles(game, game->mlx_ptr->width, game->mlx_ptr->height);

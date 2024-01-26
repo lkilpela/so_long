@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/26 13:54:37 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/26 13:59:23 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ typedef struct s_game
 typedef int	(*t_tile_function)(t_game *, int, int);
 
 int		load_map(t_game *game, char *map_file);
-int		init_game_state(t_game *game, char *map_file);
+int		prepare_game_state(t_game *game, char *map_file);
 void	free_game(t_game *game);
 void	ft_error(void);
 void	key_hook(mlx_key_data_t keydata, void *param);
@@ -86,5 +86,6 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 void	print_error(int err);
 void	resize_window(int width, int height, void *param);
+void	init_game_state(t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 23:44:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/26 13:37:38 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:02:34 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,18 @@ int	main(int argc, char **argv)
 	int		status;
 
 	check_argument(argc, argv);
+	init_game_state(&game);
+	status = load_map(&game, argv[1]);
+	if (status < 0)
+	{
+		print_error (status);
+		return (status);
+	}
 	game.mlx_ptr = mlx_init(WINDOW_WIDTH, WINDOW_HEIGHT, "so_long", true);
 	if (!game.mlx_ptr)
 		ft_error();
 	render(&game);
-	status = init_game_state(&game, argv[1]);
+	status = prepare_game_state(&game, argv[1]);
 	if (status < 0)
 	{
 		print_error (status);

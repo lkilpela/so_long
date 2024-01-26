@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:27:25 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/26 12:56:38 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:02:12 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,5 @@ int	load_map(t_game *game, char *map_file)
 		line = get_next_line(fd);
 	}
 	close(fd);
-	return (0);
+	return (validate_map(game));
 }
