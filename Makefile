@@ -33,6 +33,7 @@ clean:
 	@rm -rf $(OBJS)
 	@rm -rf $(LIBMLX)/build
 	@rm -rf $(LIBMLX)/src/*.o
+	@rm -rf $(LIBMLX)/src/CMakeCache.txt
 
 fclean: clean
 	@rm -rf $(NAME)
