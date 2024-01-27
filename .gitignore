@@ -1,0 +1,16 @@
+# Ignore object files
+*.o
+
+# Ignore dependency files
+*.d
+
+# Ignore executable files
+so_long
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore build directories
+build/
+bin/
