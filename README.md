@@ -35,7 +35,7 @@ The assets used in this project were taken from:
 ### Prerequisites
 
 - A Unix-like operating system: macOS, Linux, BSD. On Windows: WSL is preferred, but MinGW or Cygwin may work.
--- Note: The `Makefile` in this project uses the `-framework Cocoa -framework OpenGL -framework IOKit` flags, which are specific to macOS. If you're using a different operating system, you might need to modify the `Makefile` to use the appropriate flags for your system.
+- Note: The `Makefile` in this project uses the `-framework Cocoa -framework OpenGL -framework IOKit` flags, which are specific to macOS. If you're using a different operating system, you might need to modify the `Makefile` to use the appropriate flags for your system.
 - `gcc` or `clang`
 - `make`
 - MLX42 library. You can find it [here](https://github.com/codam-coding-college/MLX42)
