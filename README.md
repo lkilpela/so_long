@@ -1,5 +1,5 @@
 <h1 align="center">
-	📖 SO_LONG
+	🎮 SO_LONG
 </h1>
 
 <p align="center">
