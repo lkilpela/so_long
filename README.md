@@ -25,6 +25,12 @@
 
 No bonuses were implemented in this project.
 
+### 🎨 Assets
+
+The assets used in this project were taken from:
+
+- **Simplified Platformer Pack**: [Link to Asset 1](https://www.kenney.nl/assets/simplified-platformer-pack)
+
 ## 🏁 Getting Started
 
 ### Prerequisites
