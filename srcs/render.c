@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 09:12:37 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/27 15:32:20 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/27 16:49:58 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ static int	draw_special_tile(t_game *game, int x, int y)
 		tile = game->tiles.collectible;
 	if (game->map.grid[y][x] == EXIT)
 		tile = game->tiles.exit;
-	//if (game->map.grid[y][x] == PLAYER)
-	//	tile = game->tiles.player;
 	if (tile)
 		mlx_image_to_window(game->mlx_ptr, tile, game->tile_size * x,
 			game->tile_size * y);

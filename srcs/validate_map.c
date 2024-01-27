@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 09:13:47 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/26 12:16:55 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/27 15:50:11 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	check_valid_character_and_wall(t_game *game, int x, int y)
 	char	c;
 
 	c = game->map.grid[y][x];
-	if (c != OPEN_SPACE && c != WALL && c != COLLECTIBLE
+	if (c != FLOOR && c != WALL && c != COLLECTIBLE
 		&& c != EXIT && c != PLAYER)
 		return (ERROR_INVALID_CHARACTER);
 	if (y == 0 || y == game->map.height - 1 || x == 0
