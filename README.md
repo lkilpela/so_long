@@ -19,6 +19,8 @@
 
 `so_long` is a small 2D game built using the MLX42 library. The goal of the game is to collect all the collectibles in the least amount of moves.
 
+![Game Screenshot](https://github.com/lkilpela/so_long/blob/main/assets/game_screenshot.png)
+
 ### Bonuses
 
 No bonuses were implemented in this project.
