@@ -15,23 +15,35 @@
 	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/lkilpela/so_long?color=green" />
 </p>
 
-## Installation
+## 🎮 About The Project
 
-1. Clone the repository: `git clone https://github.com/username/so_long.git`
+`so_long` is a small 2D game built using the MLX42 library. The goal of the game is to collect all the collectibles in the least amount of moves.
+
+## 🏁 Getting Started
+
+### Prerequisites
+
+- A Unix-like operating system: macOS, Linux, BSD. On Windows: WSL is preferred, but MinGW or Cygwin may work.
+- `gcc` or `clang`
+- `make`
+- `git`
+- MLX42 library. You can find it [here](https://github.com/codam-coding-college/MLX42)
+
+### Installation
+
+1. Clone the repository: `git clone https://github.com/lkilpela/so_long.git`
 2. Navigate to the project directory: `cd so_long`
 3. Compile the project: `make`
 
-## Usage
+## 🕹️ Usage
 
 Run the game with a map file as an argument: `./so_long map_file`
 
-## Contributing
+## 🛠️ Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-## License
+## 📜 License
 
 This project is licensed under the MIT License.
 
-<h1> MLX42 </h1>
-https://github.com/codam-coding-college/MLX42
