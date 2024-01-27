@@ -77,7 +77,7 @@ The `so_long` project was evaluated based on the following criteria:
 
 1. **Game Logic**: The game must correctly implement the required logic, including player movement, collectible gathering, and exiting the game.
 
-2. **Graphics**: The game must use the MiniLibX library to create a graphical interface.
+2. **Graphics**: The game must use the MiniLibX library or MLX42 to create a graphical interface.
 
 3. **Performance**: The game must run smoothly without any performance issues or memory leaks.
 
