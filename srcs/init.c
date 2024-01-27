@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:12:07 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/27 17:11:56 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/27 20:20:37 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,30 +21,6 @@ int	init_game_textures(t_game *game)
 	mlx_texture_t	*floor;
 
 	collectible = mlx_load_png("assets/collectible.png");
-    printf("Loaded collectible texture: %p\n", collectible);
-    exit = mlx_load_png("assets/exit.png");
-    printf("Loaded exit texture: %p\n", exit);
-    player = mlx_load_png("assets/player.png");
-    printf("Loaded player texture: %p\n", player);
-    wall = mlx_load_png("assets/wall.png");
-    printf("Loaded wall texture: %p\n", wall);
-    floor = mlx_load_png("assets/floor.png");
-    printf("Loaded floor texture: %p\n", floor);
-
-    if (!collectible || !exit || !player || !wall || !floor)
-        return (ERROR_LOAD_TEXTURE);
-
-    game->tiles.collectible = mlx_texture_to_image(game->mlx_ptr, collectible);
-    printf("Converted collectible texture to image: %p\n", game->tiles.collectible);
-    game->tiles.exit = mlx_texture_to_image(game->mlx_ptr, exit);
-    printf("Converted exit texture to image: %p\n", game->tiles.exit);
-    game->tiles.player = mlx_texture_to_image(game->mlx_ptr, player);
-    printf("Converted player texture to image: %p\n", game->tiles.player);
-    game->tiles.wall = mlx_texture_to_image(game->mlx_ptr, wall);
-    printf("Converted wall texture to image: %p\n", game->tiles.wall);
-    game->tiles.floor = mlx_texture_to_image(game->mlx_ptr, floor);
-    printf("Converted floor texture to image: %p\n", game->tiles.floor);
-	/*collectible = mlx_load_png("assets/collectible.png");
 	exit = mlx_load_png("assets/exit.png");
 	player = mlx_load_png("assets/player.png");
 	wall = mlx_load_png("assets/wall.png");
@@ -55,7 +31,12 @@ int	init_game_textures(t_game *game)
 	game->tiles.exit = mlx_texture_to_image(game->mlx_ptr, exit);
 	game->tiles.player = mlx_texture_to_image(game->mlx_ptr, player);
 	game->tiles.wall = mlx_texture_to_image(game->mlx_ptr, wall);
-	game->tiles.floor = mlx_texture_to_image(game->mlx_ptr, floor);*/
+	game->tiles.floor = mlx_texture_to_image(game->mlx_ptr, floor);
+	mlx_delete_texture(collectible);
+	mlx_delete_texture(exit);
+	mlx_delete_texture(player);
+	mlx_delete_texture(wall);
+	mlx_delete_texture(floor);
 	return (0);
 }
 
