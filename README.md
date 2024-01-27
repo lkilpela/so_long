@@ -71,6 +71,20 @@ The game map is a `.ber` file with the following format:
 - `E` represents the exit.
 - `P` represents the player.
 
+## 📝 Evaluation Requirements
+
+The `so_long` project was evaluated based on the following criteria:
+
+1. **Game Logic**: The game must correctly implement the required logic, including player movement, collectible gathering, and exiting the game.
+
+2. **Graphics**: The game must use the MiniLibX library to create a graphical interface.
+
+3. **Performance**: The game must run smoothly without any performance issues or memory leaks.
+
+4. **Code Quality**: The code must be clear, concise, and efficient. It should be well-organized and easy to read.
+
+5. **Compiling**: The project must compile without any errors or warnings.
+
 ## 📜 License
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/lkilpela/so_long/blob/main/docs/LICENSE) file for details.
