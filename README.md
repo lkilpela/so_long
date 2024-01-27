@@ -46,15 +46,30 @@ The assets used in this project were taken from:
 2. Navigate to the project directory: `cd so_long`
 3. Compile the project: `make`
 
-## 🕹️ Usage
+### 🕹️ How to Play
 
-Run the game with a map file as an argument: `./so_long map_file`
+- Use `W` to move up, `A` to move left, `S` to move down, and `D` to move right.
+- Collect all the collectibles in the map.
+- Reach the exit once all collectibles have been collected.
 
-## 🛠️ Contributing
+### 🛠️ Installation & Setup
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+1. Clone the repository: `git clone https://github.com/lkilpela/so_long.git`
+2. Navigate into the project directory: `cd so_long`
+3. Compile the project: `make`
+4. Run the game: `./so_long map_file/map1.ber`
+
+### 🗺️ Map Format
+
+The game map is a `.ber` file with the following format:
+
+- `1` represents a wall.
+- `0` represents an empty space.
+- `C` represents a collectible.
+- `E` represents the exit.
+- `P` represents the player.
 
 ## 📜 License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LINK_TO_LICENSE) file for details.
 
