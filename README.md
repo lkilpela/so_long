@@ -22,7 +22,7 @@
 
 ### ⭐ Bonuses
 
-No bonuses were implemented in this project.
+- No bonuses were implemented in this project.
 
 ### 🎨 Assets
 
@@ -34,17 +34,10 @@ The assets used in this project were taken from:
 
 ### Prerequisites
 
-- A Unix-like operating system: macOS, Linux, BSD. On Windows: WSL is preferred, but MinGW or Cygwin may work.
-- Note: The `Makefile` in this project uses the `-framework Cocoa -framework OpenGL -framework IOKit` flags, which are specific to macOS. If you're using a different operating system, you might need to modify the `Makefile` to use the appropriate flags for your system.
+- The `Makefile` in this project uses the `-framework Cocoa -framework OpenGL -framework IOKit` flags, which are specific to macOS. If you're using a different operating system, you might need to modify the `Makefile` to use the appropriate flags for your system.
 - `gcc` or `clang`
 - `make`
 - MLX42 library. You can find it [here](https://github.com/codam-coding-college/MLX42)
-
-### Installation
-
-1. Clone the repository: `git clone https://github.com/lkilpela/so_long.git`
-2. Navigate to the project directory: `cd so_long`
-3. Compile the project: `make`
 
 ### 🕹️ How to Play
 
@@ -71,5 +64,5 @@ The game map is a `.ber` file with the following format:
 
 ## 📜 License
 
-This project is licensed under the MIT License - see the [LICENSE](LINK_TO_LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/lkilpela/so_long/blob/main/docs/LICENSE) file for details.
 
