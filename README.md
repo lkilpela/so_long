@@ -50,7 +50,7 @@ The assets used in this project were taken from:
 
 ### 🕹️ How to Play
 
-- Use `W` to move up, `A` to move left, `S` to move down, and `D` to move right.
+- Use `W` or `↑` to move up, `A` or `←` to move left, `S` or `↓` to move down, and `D` or `→` to move right.
 - Collect all the collectibles in the map.
 - Reach the exit once all collectibles have been collected.
 
