@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/26 14:16:20 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/27 15:35:32 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include "get_next_line/get_next_line.h"
 # include "MLX42/include/MLX42/MLX42.h"
 
-# define OPEN_SPACE '0'
+# define FLOOR '0'
 # define WALL '1'
 # define EXIT 'E'
 # define COLLECTIBLE 'C'

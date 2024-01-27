@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:25:02 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/26 14:25:12 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/27 15:37:08 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ static void	handle_collectibles(t_game *game)
 					game->collectibles_count++;
 					printf("Heart collected: %d\n", game->collectibles_count);
 					game->tiles.collectible->instances[i].enabled = 0;
+					game->map.grid[game->player.y][game->player.x] = FLOOR;
 				}
 			}
 			i++;
