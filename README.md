@@ -85,6 +85,16 @@ The `so_long` project was evaluated based on the following criteria:
 
 5. **Compiling**: The project must compile without any errors or warnings.
 
+### 🧑‍💻 Peer Evaluations (3/3)
+
+Here are some of the comments received during the peer evaluation of the `so_long` project:
+
+> **Peer 1**: "..."
+
+> **Peer 2**: "..."
+
+> **Peer 3**: "..."
+
 ## 📜 License
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/lkilpela/so_long/blob/main/docs/LICENSE) file for details.
