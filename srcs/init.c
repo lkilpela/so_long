@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:12:07 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/26 14:26:46 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/27 17:11:56 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,30 @@ int	init_game_textures(t_game *game)
 	mlx_texture_t	*floor;
 
 	collectible = mlx_load_png("assets/collectible.png");
+    printf("Loaded collectible texture: %p\n", collectible);
+    exit = mlx_load_png("assets/exit.png");
+    printf("Loaded exit texture: %p\n", exit);
+    player = mlx_load_png("assets/player.png");
+    printf("Loaded player texture: %p\n", player);
+    wall = mlx_load_png("assets/wall.png");
+    printf("Loaded wall texture: %p\n", wall);
+    floor = mlx_load_png("assets/floor.png");
+    printf("Loaded floor texture: %p\n", floor);
+
+    if (!collectible || !exit || !player || !wall || !floor)
+        return (ERROR_LOAD_TEXTURE);
+
+    game->tiles.collectible = mlx_texture_to_image(game->mlx_ptr, collectible);
+    printf("Converted collectible texture to image: %p\n", game->tiles.collectible);
+    game->tiles.exit = mlx_texture_to_image(game->mlx_ptr, exit);
+    printf("Converted exit texture to image: %p\n", game->tiles.exit);
+    game->tiles.player = mlx_texture_to_image(game->mlx_ptr, player);
+    printf("Converted player texture to image: %p\n", game->tiles.player);
+    game->tiles.wall = mlx_texture_to_image(game->mlx_ptr, wall);
+    printf("Converted wall texture to image: %p\n", game->tiles.wall);
+    game->tiles.floor = mlx_texture_to_image(game->mlx_ptr, floor);
+    printf("Converted floor texture to image: %p\n", game->tiles.floor);
+	/*collectible = mlx_load_png("assets/collectible.png");
 	exit = mlx_load_png("assets/exit.png");
 	player = mlx_load_png("assets/player.png");
 	wall = mlx_load_png("assets/wall.png");
@@ -31,7 +55,7 @@ int	init_game_textures(t_game *game)
 	game->tiles.exit = mlx_texture_to_image(game->mlx_ptr, exit);
 	game->tiles.player = mlx_texture_to_image(game->mlx_ptr, player);
 	game->tiles.wall = mlx_texture_to_image(game->mlx_ptr, wall);
-	game->tiles.floor = mlx_texture_to_image(game->mlx_ptr, floor);
+	game->tiles.floor = mlx_texture_to_image(game->mlx_ptr, floor);*/
 	return (0);
 }
 
@@ -51,11 +75,30 @@ void	calculate_tile_size(t_game *game, int width, int height)
 void	resize_game_tiles(t_game *game, int width, int height)
 {
 	calculate_tile_size(game, width, height);
-	mlx_resize_image(game->tiles.collectible, game->tile_size, game->tile_size);
+	printf("Resizing collectible image...\n");
+    mlx_resize_image(game->tiles.collectible, game->tile_size, game->tile_size);
+    printf("Collectible image resized.\n");
+
+    printf("Resizing exit image...\n");
+    mlx_resize_image(game->tiles.exit, game->tile_size, game->tile_size);
+    printf("Exit image resized.\n");
+
+    printf("Resizing player image...\n");
+    mlx_resize_image(game->tiles.player, game->tile_size, game->tile_size);
+    printf("Player image resized.\n");
+
+    printf("Resizing wall image...\n");
+    mlx_resize_image(game->tiles.wall, game->tile_size, game->tile_size);
+    printf("Wall image resized.\n");
+
+    printf("Resizing floor image...\n");
+    mlx_resize_image(game->tiles.floor, game->tile_size, game->tile_size);
+    printf("Floor image resized.\n");
+	/*mlx_resize_image(game->tiles.collectible, game->tile_size, game->tile_size);
 	mlx_resize_image(game->tiles.exit, game->tile_size, game->tile_size);
 	mlx_resize_image(game->tiles.player, game->tile_size, game->tile_size);
 	mlx_resize_image(game->tiles.wall, game->tile_size, game->tile_size);
-	mlx_resize_image(game->tiles.floor, game->tile_size, game->tile_size);
+	mlx_resize_image(game->tiles.floor, game->tile_size, game->tile_size);*/
 }
 
 void	init_game_state(t_game *game)
