@@ -20,7 +20,7 @@
 
 ![Game Screenshot](https://github.com/lkilpela/so_long/blob/main/docs/game_screenshot.png)
 
-### Bonuses
+### ⭐ Bonuses
 
 No bonuses were implemented in this project.
 
