@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-	<b><i>Build a very small 2D game.</i></b><br>
+	<b><i>Build a very small 2D game</i></b><br>
 </p>
 
 <p align="center">
