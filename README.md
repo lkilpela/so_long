@@ -15,7 +15,23 @@
 	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/lkilpela/so_long?color=green" />
 </p>
 
+## Installation
 
+1. Clone the repository: `git clone https://github.com/username/so_long.git`
+2. Navigate to the project directory: `cd so_long`
+3. Compile the project: `make`
+
+## Usage
+
+Run the game with a map file as an argument: `./so_long map_file`
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+This project is licensed under the MIT License.
 
 <h1> MLX42 </h1>
 https://github.com/codam-coding-college/MLX42
