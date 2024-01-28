@@ -30,7 +30,6 @@ clean:
 	@echo "Cleaning object files and build directories..."
 	@rm -rf $(OBJS)
 	@rm -rf $(LIBMLX)/build
-	@rm -rf $(LIBMLX)/src/*.o
 	@rm -rf $(LIBFT)/build
 	@make -C $(LIBFT) clean
 
@@ -42,5 +41,5 @@ fclean: clean
 
 re: fclean all
 	@echo "Rebuilding everything..."
-	
+
 .PHONY: all clean fclean re libft libmlx
