@@ -35,6 +35,7 @@ clean:
 fclean: clean
 	@rm -rf $(NAME)
 	make clean -C $(LIBMLX)
+	make fclean -C $(LIBFT)
 
 re: fclean all
 
