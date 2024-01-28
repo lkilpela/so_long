@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 23:44:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/28 14:24:57 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/28 14:26:31 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	check_argument(int argc, char **argv)
 	}
 }
 
-void	free_game(t_game *game)
+static void	free_game(t_game *game)
 {
 	int	y;
 

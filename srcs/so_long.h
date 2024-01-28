@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/28 14:25:09 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/28 14:26:38 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ typedef int	(*t_tile_function)(t_game *, int, int);
 
 int		load_map(t_game *game, char *map_file);
 int		prepare_game_state(t_game *game);
-void	free_game(t_game *game);
 void	ft_error(void);
 void	key_hook(mlx_key_data_t keydata, void *param);
 void	calculate_tile_size(t_game *game, int width, int height);
