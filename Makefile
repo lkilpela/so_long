@@ -20,8 +20,6 @@ libft:
 libmlx:
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
-#%.c : so_long.h error.h
-
 %.o : %.c
 	@$(CC) $(CCFLAGS) -o $@ -c $< $(HDRS) && printf "Compiling: $(notdir $<)\n"
 
@@ -32,8 +30,6 @@ clean:
 	@rm -rf $(OBJS)
 	@rm -rf $(LIBMLX)/build
 	@rm -rf $(LIBMLX)/src/*.o
-#@rm -rf $(LIBMLX)/src/CMakeCache.txt
-
 	@make -C $(LIBFT) clean
 
 fclean: clean
