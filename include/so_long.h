@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/28 22:45:38 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/28 23:36:44 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,14 @@
 # define WINDOW_WIDTH 1366
 # define WINDOW_HEIGHT 768
 
+// Structure to represent a position in the game map.
 typedef struct s_position
 {
 	int	x;
 	int	y;
 }				t_position;
 
+// Structure to represent the game map.
 typedef struct s_map
 {
 	char		**grid;
@@ -46,6 +48,7 @@ typedef struct s_map
 	int			collectibles;
 }				t_map;
 
+// Structure to represent the game's textures.
 typedef struct s_tiles
 {
 	mlx_image_t	*wall;
@@ -55,6 +58,7 @@ typedef struct s_tiles
 	mlx_image_t	*player;
 }				t_tiles;
 
+// Structure to represent the game state.
 typedef struct s_game
 {
 	int			collectibles_count;
