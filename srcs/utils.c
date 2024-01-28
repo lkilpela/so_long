@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:51:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/26 12:11:21 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/28 17:46:45 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,36 +46,6 @@ void	print_error(int err)
 		printf("%s\n", g_error_msgs[-err]);
 	else
 		printf("Unknown error\n");
-}
-
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
-{
-	while ((*s1 != 0 || *s2 != 0) && n > 0)
-	{
-		if (*s1 != *s2)
-			return ((int)(unsigned char)*s1 - (int)(unsigned char)*s2);
-		s1++;
-		s2++;
-		n--;
-	}
-	return (0);
-}
-
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
-{
-	size_t	n;
-
-	n = ft_strlen(needle);
-	if (*needle == 0)
-		return ((char *)haystack);
-	while (*haystack != 0 && n <= len)
-	{
-		if (ft_strncmp(haystack, needle, n) == 0)
-			return ((char *)haystack);
-		++haystack;
-		--len;
-	}
-	return (0);
 }
 
 int	iterate_map(t_game *game, t_tile_function func)
