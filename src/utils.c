@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:51:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/28 17:46:45 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/28 22:19:48 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	print_error(int err)
 		printf("%s\n", g_error_msgs[-err]);
 	else
 		printf("Unknown error\n");
+	exit(EXIT_FAILURE);
 }
 
 int	iterate_map(t_game *game, t_tile_function func)

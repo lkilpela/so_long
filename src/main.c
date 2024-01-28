@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 23:44:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/28 14:26:31 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/28 22:20:06 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,21 +74,15 @@ int	main(int argc, char **argv)
 	init_game_state(&game);
 	status = load_map(&game, argv[1]);
 	if (status < 0)
-	{
 		print_error (status);
-		return (status);
-	}
 	calculate_tile_size(&game, WINDOW_WIDTH, WINDOW_HEIGHT);
-	game.mlx_ptr = mlx_init(game.tile_size * game.map.width, 
-		game.tile_size * game.map.height, "so_long", true);
+	game.mlx_ptr = mlx_init(game.tile_size * game.map.width,
+			game.tile_size * game.map.height, "so_long", true);
 	if (!game.mlx_ptr)
 		ft_error();
 	status = prepare_game_state(&game);
 	if (status < 0)
-	{
 		print_error (status);
-		return (status);
-	}
 	render(&game);
 	init_player_movement(&game);
 	mlx_loop(game.mlx_ptr);

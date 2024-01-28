@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/28 20:17:13 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/28 22:22:19 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ int		prepare_game_state(t_game *game);
 void	ft_error(void);
 void	key_hook(mlx_key_data_t keydata, void *param);
 void	calculate_tile_size(t_game *game, int width, int height);
-int		init_game_textures(t_game *game);
 void	render(t_game *game);
 int		iterate_map(t_game *game, t_tile_function func);
 int		validate_map(t_game *game);
