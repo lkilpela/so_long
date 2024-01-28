@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:12:07 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/28 14:33:25 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/28 14:37:23 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	calculate_tile_size(t_game *game, int width, int height)
 		game->tile_size = tile_height;
 }
 
-void	resize_game_tiles(t_game *game, int width, int height)
+static void	resize_game_tiles(t_game *game, int width, int height)
 {
 	calculate_tile_size(game, width, height);
 	mlx_resize_image(game->tiles.collectible, game->tile_size, game->tile_size);
@@ -94,5 +94,5 @@ int	prepare_game_state(t_game *game)
 	mlx_resize_hook(game->mlx_ptr, resize_window, game);
 	return (0);
 }
-
+ 
 
