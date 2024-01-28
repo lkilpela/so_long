@@ -11,8 +11,11 @@ OBJS = $(SRCS:%.c=%.o)
 
 all: libft libmlx $(NAME)
 
-libft:
+libft: 
 	@make -C $(LIBFT)
+
+%.o : %.c
+    @$(CC) $(CCFLAGS) -o $@ -c $< $(HDRS) && printf "Compiling: $(notdir $<)\n"
 
 libmlx:
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
@@ -29,7 +32,8 @@ clean:
 	@rm -rf $(OBJS)
 	@rm -rf $(LIBMLX)/build
 	@rm -rf $(LIBMLX)/src/*.o
-	@rm -rf $(LIBMLX)/src/CMakeCache.txt
+#@rm -rf $(LIBMLX)/src/CMakeCache.txt
+
 	@make -C $(LIBFT) clean
 
 fclean: clean
