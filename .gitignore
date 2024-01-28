@@ -6,6 +6,7 @@
 
 # Ignore executable files
 so_long
+libft.a
 
 # Ignore system files
 .DS_Store
