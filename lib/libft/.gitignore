@@ -16,3 +16,4 @@ libft.a
 # Other
 *.swp
 *~
+build/
