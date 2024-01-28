@@ -12,7 +12,7 @@ OBJS = $(SRCS:%.c=%.o)
 all: libft libmlx $(NAME)
 
 libft:
-    @make -C $(LIBFT)
+	@make -C $(LIBFT)
 
 libmlx:
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
