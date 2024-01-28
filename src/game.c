@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:12:07 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/28 22:00:34 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/28 22:09:48 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,3 @@ int	prepare_game_state(t_game *game)
 	mlx_resize_hook(game->mlx_ptr, resize_window, game);
 	return (0);
 }
- 
-
