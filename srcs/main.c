@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 23:44:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/26 14:16:02 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/28 13:01:39 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ int	main(int argc, char **argv)
 		return (status);
 	}
 	calculate_tile_size(&game, WINDOW_WIDTH, WINDOW_HEIGHT);
-	game.mlx_ptr = mlx_init(game.tile_size * game.map.width, game.tile_size * game.map.height, "so_long", true);
+	game.mlx_ptr = mlx_init(game.tile_size * game.map.width, 
+		game.tile_size * game.map.height, "so_long", true);
 	if (!game.mlx_ptr)
 		ft_error();
 	status = prepare_game_state(&game);
