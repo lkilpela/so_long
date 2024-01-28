@@ -6,11 +6,12 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:12:07 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/27 20:20:37 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/28 13:53:13 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
 
 int	init_game_textures(t_game *game)
 {
@@ -82,19 +83,7 @@ void	resize_game_tiles(t_game *game, int width, int height)
 	mlx_resize_image(game->tiles.floor, game->tile_size, game->tile_size);*/
 }
 
-void	init_game_state(t_game *game)
-{
-	game->collectibles_count = 0;
-	game->move_count = 0;
-	game->map.grid = 0;
-	game->map.height = 0;
-	game->map.width = 0;
-	game->map.collectibles = 0;
-	game->exit.x = 0;
-	game->exit.y = 0;
-	game->player.x = 0;
-	game->player.y = 0;
-}
+
 
 int	prepare_game_state(t_game *game)
 {
