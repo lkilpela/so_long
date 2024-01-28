@@ -1,27 +1,23 @@
 NAME = so_long
 CCFLAGS = -Wall -Wextra -Werror -Wunreachable-code -Ofast
+
+LIBFT = ./libft
 LIBMLX = ./MLX42
 
-HDRS = -I. -I $(LIBMLX)/include $(shell pkg-config --cflags glfw3)
-LIBS = $(LIBMLX)/build/libmlx42.a -ldl $(shell pkg-config --libs glfw3) -pthread -lm
-SRCS = srcs/main.c \
-	srcs/map.c \
-	srcs/init.c \
-	srcs/player.c \
-	srcs/utils.c \
-	srcs/render.c \
-	srcs/validate_map.c \
-	srcs/window.c \
-	get_next_line/get_next_line_utils.c \
-	get_next_line/get_next_line.c
+HDRS = -I./include -I $(LIBFT)/include -I $(LIBMLX)/include $(shell pkg-config --cflags glfw3)
+LIBS = $(LIBFT)/libft.a $(LIBMLX)/build/libft.a $(LIBMLX)/build/libmlx42.a -ldl $(shell pkg-config --libs glfw3) -pthread -lm
+SRCS = $(wildcard src/*.c)
 OBJS = $(SRCS:%.c=%.o)
 
-all: libmlx $(NAME)
+all: libft libmlx $(NAME)
+
+libft:
+    @make -C $(LIBFT)
 
 libmlx:
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
-%.c : so_long.h error.h
+#%.c : so_long.h error.h
 
 %.o : %.c
 	@$(CC) $(CCFLAGS) -o $@ -c $< $(HDRS) && printf "Compiling: $(notdir $<)\n"
@@ -34,6 +30,7 @@ clean:
 	@rm -rf $(LIBMLX)/build
 	@rm -rf $(LIBMLX)/src/*.o
 	@rm -rf $(LIBMLX)/src/CMakeCache.txt
+	@make -C $(LIBFT) clean
 
 fclean: clean
 	@rm -rf $(NAME)
@@ -41,4 +38,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re libmlx
+.PHONY: all clean fclean re libft libmlx
