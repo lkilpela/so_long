@@ -6,12 +6,27 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:25:02 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/28 22:29:56 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/28 22:32:36 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+static void	check_keys(mlx_key_data_t keydata, int *move_x, int *move_y)
+{
+	if ((keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_UP)
+		&& keydata.action == MLX_PRESS)
+		*move_y = -1;
+	if ((keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_DOWN)
+		&& keydata.action == MLX_PRESS)
+		*move_y = 1;
+	if ((keydata.key == MLX_KEY_A || keydata.key == MLX_KEY_LEFT)
+		&& keydata.action == MLX_PRESS)
+		*move_x = -1;
+	if ((keydata.key == MLX_KEY_D || keydata.key == MLX_KEY_RIGHT)
+		&& keydata.action == MLX_PRESS)
+		*move_x = 1;
+}
 static void	handle_player_movement(t_game *game, int move_x, int move_y)
 {
 	int	new_y;
@@ -66,22 +81,6 @@ static void	handle_exit(t_game *game)
 			game->map.collectibles);
 		mlx_close_window(game->mlx_ptr);
 	}
-}
-
-static void	check_keys(mlx_key_data_t keydata, int *move_x, int *move_y)
-{
-	if ((keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_UP)
-		&& keydata.action == MLX_PRESS)
-		*move_y = -1;
-	if ((keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_DOWN)
-		&& keydata.action == MLX_PRESS)
-		*move_y = 1;
-	if ((keydata.key == MLX_KEY_A || keydata.key == MLX_KEY_LEFT)
-		&& keydata.action == MLX_PRESS)
-		*move_x = -1;
-	if ((keydata.key == MLX_KEY_D || keydata.key == MLX_KEY_RIGHT)
-		&& keydata.action == MLX_PRESS)
-		*move_x = 1;
 }
 
 void	key_hook(mlx_key_data_t keydata, void *param)
