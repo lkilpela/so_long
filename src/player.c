@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:25:02 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/27 15:37:08 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/28 22:29:56 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ static void	handle_exit(t_game *game)
 	if (game->map.grid[game->player.y][game->player.x] == EXIT)
 	{
 		printf("Congratulations, you exited!!!\n");
-		printf("Number of hearts collected: %d/%d\n",game->collectibles_count, game->map.collectibles);
+		printf("Number of hearts collected: %d/%d\n", game->collectibles_count,
+			game->map.collectibles);
 		mlx_close_window(game->mlx_ptr);
 	}
 }
@@ -95,7 +96,8 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 	{
 		printf("Player pressed ESC. Closing the game...\n");
-		printf("Number of hearts collected: %d/%d\n",game->collectibles_count, game->map.collectibles);
+		printf("Number of hearts collected: %d/%d\n", game->collectibles_count,
+			game->map.collectibles);
 		mlx_close_window(game->mlx_ptr);
 	}
 	check_keys(keydata, &move_x, &move_y);
