@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/28 17:47:22 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/28 18:10:33 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdio.h>
 # include <string.h>
 # include "error.h"
-# include "libft/include.h"
+# include "libft/include/libft.h"
 # include "MLX42/include/MLX42/MLX42.h"
 
 # define FLOOR '0'
