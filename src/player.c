@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:25:02 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/28 22:32:36 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/28 22:33:28 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static void	check_keys(mlx_key_data_t keydata, int *move_x, int *move_y)
 		&& keydata.action == MLX_PRESS)
 		*move_x = 1;
 }
+
 static void	handle_player_movement(t_game *game, int move_x, int move_y)
 {
 	int	new_y;
