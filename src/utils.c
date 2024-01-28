@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:51:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/28 22:19:48 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/28 22:37:39 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,26 +49,4 @@ void	print_error(int err)
 	exit(EXIT_FAILURE);
 }
 
-int	iterate_map(t_game *game, t_tile_function func)
-{
-	int	x;
-	int	y;
-	int	status;
 
-	if (!game)
-		return (ERROR_NULL_ARGUMENT);
-	y = 0;
-	while (y < game->map.height)
-	{
-		x = 0;
-		while (x < game->map.width)
-		{
-			status = func(game, x, y);
-			if (status < 0)
-				return (status);
-			x++;
-		}
-		y++;
-	}
-	return (0);
-}
