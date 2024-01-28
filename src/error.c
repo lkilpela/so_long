@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:51:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/28 22:37:39 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/28 22:38:41 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,3 @@ void	print_error(int err)
 		printf("Unknown error\n");
 	exit(EXIT_FAILURE);
 }
-
-
