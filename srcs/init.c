@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:12:07 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/28 14:24:28 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/28 14:33:25 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,26 @@ void	resize_game_tiles(t_game *game, int width, int height)
 	mlx_resize_image(game->tiles.player, game->tile_size, game->tile_size);
 	mlx_resize_image(game->tiles.wall, game->tile_size, game->tile_size);
 	mlx_resize_image(game->tiles.floor, game->tile_size, game->tile_size);
+}
+
+static void	resize_window(int width, int height, void *param)
+{
+	t_game	*game;
+
+	game = (t_game *)param;
+    printf("Deleting images...\n");
+	mlx_delete_image(game->mlx_ptr, game->tiles.collectible);
+	mlx_delete_image(game->mlx_ptr, game->tiles.exit);
+	mlx_delete_image(game->mlx_ptr, game->tiles.player);
+	mlx_delete_image(game->mlx_ptr, game->tiles.wall);
+	mlx_delete_image(game->mlx_ptr, game->tiles.floor);
+    printf("Images deleted.\n");
+
+    printf("Initializing game textures...\n");
+	init_game_textures(game);
+    printf("Game textures initialized.\n");
+	resize_game_tiles(game, width, height);
+	render(game);
 }
 
 int	prepare_game_state(t_game *game)
