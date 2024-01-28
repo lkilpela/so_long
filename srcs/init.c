@@ -6,12 +6,11 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:12:07 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/28 13:53:13 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/28 13:54:59 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 int	init_game_textures(t_game *game)
 {
@@ -57,33 +56,12 @@ void	calculate_tile_size(t_game *game, int width, int height)
 void	resize_game_tiles(t_game *game, int width, int height)
 {
 	calculate_tile_size(game, width, height);
-	printf("Resizing collectible image...\n");
-    mlx_resize_image(game->tiles.collectible, game->tile_size, game->tile_size);
-    printf("Collectible image resized.\n");
-
-    printf("Resizing exit image...\n");
-    mlx_resize_image(game->tiles.exit, game->tile_size, game->tile_size);
-    printf("Exit image resized.\n");
-
-    printf("Resizing player image...\n");
-    mlx_resize_image(game->tiles.player, game->tile_size, game->tile_size);
-    printf("Player image resized.\n");
-
-    printf("Resizing wall image...\n");
-    mlx_resize_image(game->tiles.wall, game->tile_size, game->tile_size);
-    printf("Wall image resized.\n");
-
-    printf("Resizing floor image...\n");
-    mlx_resize_image(game->tiles.floor, game->tile_size, game->tile_size);
-    printf("Floor image resized.\n");
-	/*mlx_resize_image(game->tiles.collectible, game->tile_size, game->tile_size);
+	mlx_resize_image(game->tiles.collectible, game->tile_size, game->tile_size);
 	mlx_resize_image(game->tiles.exit, game->tile_size, game->tile_size);
 	mlx_resize_image(game->tiles.player, game->tile_size, game->tile_size);
 	mlx_resize_image(game->tiles.wall, game->tile_size, game->tile_size);
-	mlx_resize_image(game->tiles.floor, game->tile_size, game->tile_size);*/
+	mlx_resize_image(game->tiles.floor, game->tile_size, game->tile_size);
 }
-
-
 
 int	prepare_game_state(t_game *game)
 {
