@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 23:44:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/28 13:53:23 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/28 14:24:57 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ static void	init_game_state(t_game *game)
 	game->exit.y = 0;
 	game->player.x = 0;
 	game->player.y = 0;
+}
+
+static void	init_player_movement(t_game *game)
+{
+	mlx_key_hook(game->mlx_ptr, key_hook, game);
 }
 
 static void	check_argument(int argc, char **argv)

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:12:07 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/28 13:54:59 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/28 14:24:28 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,4 @@ int	prepare_game_state(t_game *game)
 	return (0);
 }
 
-void	init_player_movement(t_game *game)
-{
-	mlx_key_hook(game->mlx_ptr, key_hook, game);
-}
+
