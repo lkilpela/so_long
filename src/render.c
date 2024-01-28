@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 09:12:37 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/27 16:51:09 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/28 22:12:16 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	render(t_game *game)
 		exit (ERROR_NULL_ARGUMENT);
 	iterate_map(game, draw_basic_tile);
 	iterate_map(game, draw_special_tile);
-	mlx_image_to_window(game->mlx_ptr, game->tiles.player, 
+	mlx_image_to_window(game->mlx_ptr, game->tiles.player,
 		game->tile_size * game->player.x,
 		game->tile_size * game->player.y);
 }
