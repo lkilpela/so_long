@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:51:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/29 14:19:18 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:26:59 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ const char	*g_error_msgs[] = {
 	"Error: Invalid player count. The map should contain exactly one player.",
 	"Error: Invalid exit count. The map should contain at least one exit.",
 	"Error: No file provided. Please provide a .ber file as the 1st	argument.",
-	"Error: Invalid map file. The map file must have a .ber extension.",
-	"Error: No player found in the map.",
-	"Error: No exit found in the map.",
-	"Error: No collectible found in the map.",
+	"Error: Invalid file. The map file must have a .ber extension.",
+	"Error: Invalid map. No player found in the map.",
+	"Error: Invalid map. No exit found in the map.",
+	"Error: Invalid map. No collectible found in the map.",
 	"Error: Failed to load one or more game textures.",
 	"Error: Invalid map path."
 };
