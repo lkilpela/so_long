@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 13:42:23 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/29 10:58:56 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:05:20 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # define ERROR_OPENING_FILE -2
 # define ERROR_ALLOCATING_MEMORY -3
 # define ERROR_READING_FILE -4
-# define ERROR_INVALID_RECTANGULAR_MAP -5
+# define ERROR_INVALID_MAP -5
 # define ERROR_EMPTY_MAP -6
 # define ERROR_INVALID_CHARACTER -7
 # define ERROR_INVALID_DIMENSIONS -8

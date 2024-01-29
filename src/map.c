@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:27:25 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/29 10:59:06 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:05:14 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	add_to_map(t_game *game, char *line)
 	if (game->map.height == 0)
 		game->map.width = get_line_width(line);
 	else if (game->map.width != get_line_width(line))
-		return (ERROR_INVALID_RECTANGULAR_MAP);
+		return (ERROR_INVALID_MAP);
 	new_arr = malloc(sizeof(char *) * (game->map.height + 1));
 	if (!new_arr)
 		return (ERROR_ALLOCATING_MEMORY);
