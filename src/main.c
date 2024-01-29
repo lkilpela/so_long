@@ -6,30 +6,11 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 23:44:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/29 11:58:14 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:39:37 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-static void	init_game_state(t_game *game)
-{
-	game->collectibles_count = 0;
-	game->move_count = 0;
-	game->map.grid = 0;
-	game->map.height = 0;
-	game->map.width = 0;
-	game->map.collectibles = 0;
-	game->exit.x = 0;
-	game->exit.y = 0;
-	game->player.x = 0;
-	game->player.y = 0;
-}
-
-static void	init_player_movement(t_game *game)
-{
-	mlx_key_hook(game->mlx_ptr, key_hook, game);
-}
 
 static void	check_argument(int argc, char **argv)
 {
@@ -50,6 +31,25 @@ static void	check_argument(int argc, char **argv)
 		print_error(ERROR_INVALID_MAP_FILE);
 		exit (ERROR_INVALID_MAP_FILE);
 	}
+}
+
+static void	init_game_state(t_game *game)
+{
+	game->collectibles_count = 0;
+	game->move_count = 0;
+	game->map.grid = 0;
+	game->map.height = 0;
+	game->map.width = 0;
+	game->map.collectibles = 0;
+	game->exit.x = 0;
+	game->exit.y = 0;
+	game->player.x = 0;
+	game->player.y = 0;
+}
+
+static void	init_player_movement(t_game *game)
+{
+	mlx_key_hook(game->mlx_ptr, key_hook, game);
 }
 
 static void	free_game(t_game *game)
