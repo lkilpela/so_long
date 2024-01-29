@@ -1,11 +1,11 @@
 NAME = so_long
-CCFLAGS = -Wall -Wextra -Werror -Wunreachable-code -Ofast
+CCFLAGS = -Wall -Wextra -Werror -Wunreachable-code -Ofast -fsanitize=address
 
 LIBFT = ./lib/libft
 LIBMLX = ./lib/MLX42
 
 HDRS = -I./include -I $(LIBFT)/include -I $(LIBMLX)/include $(shell pkg-config --cflags glfw3)
-LIBS = $(LIBFT)/libft.a $(LIBMLX)/build/libmlx42.a -ldl $(shell pkg-config --libs glfw3) -pthread -lm
+LIBS = $(LIBFT)/libft.a $(LIBMLX)/build/libmlx42.a -ldl $(shell pkg-config --libs glfw3) -pthread -lm -fsanitize=address
 SRCS = $(wildcard src/*.c)
 OBJS = $(SRCS:%.c=%.o)
 
