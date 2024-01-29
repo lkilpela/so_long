@@ -24,7 +24,8 @@ libmlx:
 	@$(CC) $(CCFLAGS) -o $@ -c $< $(HDRS) && printf "Compiling so_long: $(notdir $<)\n"
 
 $(NAME): $(OBJS)
-	@$(CC) $(OBJS) $(LIBS) $(HDRS) -o $(NAME) -framework Cocoa -framework OpenGL -framework IOKit
+	@$(CC) $(OBJS) $(LIBS) $(HDRS) -o $(NAME) -lX11 -lGL -ludev
+#-framework Cocoa -framework OpenGL -framework IOKit
 
 clean:
 	@echo "Cleaning object files and build directories..."
