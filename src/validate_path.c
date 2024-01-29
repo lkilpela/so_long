@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 11:24:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/29 14:17:56 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:20:23 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,5 @@ int	validate_path(t_game *game)
 	free(new_arr);
 	if (res == 0)
 		return (ERROR_INVALID_PATH);
+	return (0);
 }
