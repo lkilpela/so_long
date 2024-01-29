@@ -1,5 +1,5 @@
 <h1 align="center">
-	![Player Image](./assets/player.png) 
+	<img src="./assets/player.png" alt="Player Image">
 	SO_LONG
 </h1>
 
