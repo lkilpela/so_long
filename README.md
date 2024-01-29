@@ -1,5 +1,5 @@
 <h1 align="center">
-	![Game Player](https://github.com/lkilpela/so_long/blob/main/assets/player.png) 
+	![Player Image](./assets/player.png) 
 	SO_LONG
 </h1>
 
