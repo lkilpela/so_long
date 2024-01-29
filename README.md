@@ -1,5 +1,6 @@
 <h1 align="center">
-	🎮 SO_LONG
+	![Game Player](https://github.com/lkilpela/so_long/blob/main/assets/player.png) 
+	SO_LONG
 </h1>
 
 <p align="center">
