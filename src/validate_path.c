@@ -6,25 +6,36 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 11:24:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/29 11:40:34 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:15:18 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	init_direction(t_game *game)
+static int	step(t_game *game, char *new_arr, int x, int y)
 {
-	int move_x[4];
-	int move_y[4];
-	
-	move_x[0] = -1;// Move up
-    move_x[1] = 1;// Move down
-    move_x[2] = 0;// No vertical movement
-    move_x[3] = 0;// No vertical movement
-	move_y[0] = 0;   // No horizontal movement
-    move_y[1] = 0;   // No horizontal movement
-    move_y[2] = -1;  // Move left
-    move_y[3] = 1;   // Move right
+	int	i;
+
+	i = y * game->map.width + x;
+	if (new_arr[i] || game->map.grid[y][x] == WALL)
+		return (0);
+	if (game->map.grid[y][x] == EXIT)
+		return (1);
+	new_arr[i] = 1;
+	return (step(game, new_arr, x - 1, y) || step(game, new_arr, x + 1, y)
+		|| step(game, new_arr, x, y - 1) || step(game, new_arr, x, y + 1));
 }
 
-int validate_path(t_game *game)
+int	validate_path(t_game *game)
+{
+	char	*new_arr;
+	int		res;
+
+	new_arr = malloc(sizeof(char) * (game->map.width * game->map.height));
+	if (!new_arr)
+		return (ERROR_ALLOCATING_MEMORY);
+	ft_memset(new_arr, 0, game->map.width * game->map.height);
+	res = step(game, new_arr, game->player.x, game->player.y);
+	free(new_arr);
+	return (res);
+}

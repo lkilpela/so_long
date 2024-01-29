@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 09:13:47 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/27 15:50:11 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:13:13 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,5 @@ int	validate_map(t_game *game)
 	iterate_map(game, check_collectible);
 	if (game->map.collectibles == 0)
 		return (ERROR_NO_COLLECTIBLE);
-	return (0);
+	return (validate_path(game));
 }

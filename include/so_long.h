@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:39:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/28 23:36:44 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:10:36 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ void	key_hook(mlx_key_data_t keydata, void *param);
 void	render(t_game *game);
 int		iterate_map(t_game *game, t_tile_function func);
 int		validate_map(t_game *game);
+int		validate_path(t_game *game);
 
 #endif
