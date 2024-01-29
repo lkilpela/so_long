@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:12:07 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/28 22:09:48 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:12:39 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ static int	init_game_textures(t_game *game)
 	mlx_texture_t	*wall;
 	mlx_texture_t	*floor;
 
-	collectible = mlx_load_png("assets/collectible.png");
-	exit = mlx_load_png("assets/exit.png");
-	player = mlx_load_png("assets/player.png");
-	wall = mlx_load_png("assets/wall.png");
-	floor = mlx_load_png("assets/floor.png");
+	collectible = mlx_load_png("textures/collectible.png");
+	exit = mlx_load_png("textures/exit.png");
+	player = mlx_load_png("textures/player.png");
+	wall = mlx_load_png("textures/wall.png");
+	floor = mlx_load_png("textures/floor.png");
 	if (!collectible || !exit || !player || !wall || !floor)
 		return (ERROR_LOAD_TEXTURE);
 	game->tiles.collectible = mlx_texture_to_image(game->mlx_ptr, collectible);
