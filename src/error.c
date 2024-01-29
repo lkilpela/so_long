@@ -6,13 +6,13 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:51:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/29 14:26:59 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:00:53 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-const char	*g_error_msgs[] = {
+static const char	*g_error_msgs[] = {
 	"No error.",
 	"Error: Null argument provided.",
 	"Error: Opening file.",
