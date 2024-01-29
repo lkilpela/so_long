@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 11:24:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/29 14:15:18 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:17:56 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ int	validate_path(t_game *game)
 	ft_memset(new_arr, 0, game->map.width * game->map.height);
 	res = step(game, new_arr, game->player.x, game->player.y);
 	free(new_arr);
-	return (res);
+	if (res == 0)
+		return (ERROR_INVALID_PATH);
 }

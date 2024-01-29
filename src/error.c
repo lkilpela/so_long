@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:51:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/29 11:19:35 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:19:18 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ const char	*g_error_msgs[] = {
 	"Error: No player found in the map.",
 	"Error: No exit found in the map.",
 	"Error: No collectible found in the map.",
-	"Error: Failed to load one or more game textures."
+	"Error: Failed to load one or more game textures.",
+	"Error: Invalid map path."
 };
 
 // Exit the program as failure.

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 13:42:23 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/29 11:05:20 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:18:18 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define ERROR_NO_EXIT -15
 # define ERROR_NO_COLLECTIBLE -16
 # define ERROR_LOAD_TEXTURE -17
-# define LAST_ERROR -18
+# define ERROR_INVALID_PATH -18
+# define LAST_ERROR -19
 
 #endif
