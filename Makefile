@@ -6,7 +6,8 @@ LIBMLX = ./lib/MLX42
 
 HDRS = -I./include -I $(LIBFT)/include -I $(LIBMLX)/include $(shell pkg-config --cflags glfw3)
 LIBS = $(LIBFT)/libft.a $(LIBMLX)/build/libmlx42.a -ldl $(shell pkg-config --libs glfw3) -pthread -lm -fsanitize=address
-SRCS = $(wildcard src/*.c)
+SRCS = src/error.c src/game.c src/graphic.c src/main.c src/read_map.c \
+	src/render_map.c src/validate_map.c src/validate_path.c
 OBJS = $(SRCS:%.c=%.o)
 
 all: libft libmlx $(NAME)
