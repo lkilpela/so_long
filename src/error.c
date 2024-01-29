@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:51:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/28 22:38:41 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:01:27 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ const char	*g_error_msgs[] = {
 	"Error: Opening file.",
 	"Error: Allocating memory for map grid.",
 	"Error: Reading map file.",
-	"Error: Validating map.",
+	"Error: Invalid map. The provided map is not rectangular.",
 	"Error: Empty map.",
 	"Error: Invalid character in map.",
 	"Error: Invalid map dimensions.",
