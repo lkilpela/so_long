@@ -1,5 +1,5 @@
 <h1 align="center">
-	<img src="./assets/player.png" alt="Player Image">
+	<img src="./textures/player.png" alt="Player Image">
 	SO_LONG
 </h1>
 
