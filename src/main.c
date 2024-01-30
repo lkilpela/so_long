@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 23:44:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/29 19:25:42 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/30 11:37:26 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	init_player_movement(t_game *game)
 	mlx_key_hook(game->mlx_ptr, key_hook, game);
 }
 
-/*static void	free_game(t_game *game)
+static void	free_game(t_game *game)
 {
 	int	y;
 
@@ -63,7 +63,7 @@ static void	init_player_movement(t_game *game)
 		y++;
 	}
 	free(game->map.grid);
-}*/
+}
 
 int	main(int argc, char **argv)
 {
@@ -86,7 +86,7 @@ int	main(int argc, char **argv)
 	render(&game);
 	init_player_movement(&game);
 	mlx_loop(game.mlx_ptr);
-	//free_game(&game);
+	free_game(&game);
 	mlx_terminate(game.mlx_ptr);
 	return (EXIT_SUCCESS);
 }
