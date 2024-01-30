@@ -44,6 +44,3 @@ re: fclean all
 	@echo "Rebuilding everything..."
 
 .PHONY: all clean fclean re libft libmlx
-
-check_leaks: $(NAME)
-	./$(NAME) & sleep 1 && leaks $! && wait
