@@ -15,10 +15,6 @@ all: libft libmlx $(NAME)
 libft: 
 	@make -C $(LIBFT)
 
-build/%.o : %.c
-	@mkdir -p $(dir $@)
-	@$(CC) $(CCFLAGS) -o $@ -c $< $(HDRS) && printf "Compiling: $(notdir $<)\n"
-
 libmlx:
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
