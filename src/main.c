@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 23:44:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/30 11:37:26 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/01/31 12:50:44 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static void	check_argument(int argc, char **argv)
 {
 	char	*filename;
-	char	*extension;
 	int		len;
 
 	if (argc != 2)
@@ -25,8 +24,7 @@ static void	check_argument(int argc, char **argv)
 	}
 	filename = argv[1];
 	len = ft_strlen(filename);
-	extension = ft_strnstr(filename, ".ber", len);
-	if (!extension || ft_strncmp(extension, ".ber", 4) != 0)
+	if (len < 4 || ft_strncmp((filename + len - 4), ".ber", 4) != 0)
 	{
 		print_error(ERROR_INVALID_MAP_FILE);
 		exit (ERROR_INVALID_MAP_FILE);
