@@ -29,7 +29,7 @@ clean:
 	@rm -rf $(OBJS)
 	@rm -rf $(LIBMLX)/build
 	@rm -rf $(LIBFT)/build
-	@make -C $(LIBFT) clean
+#@make -C $(LIBFT) clean
 
 fclean: clean
 	@echo "Removing executable..."
