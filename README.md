@@ -48,6 +48,7 @@ The assets used in this project were taken from:
 - `gcc` or `clang`
 - `make`
 - MLX42 library. You can find it [here](https://github.com/codam-coding-college/MLX42)
+- libft library. 
 
 ### 🕹️ How to Play
 
@@ -57,7 +58,14 @@ The assets used in this project were taken from:
 
 ### 🛠️ Installation & Setup
 
-1. Clone the repository: `git clone https://github.com/lkilpela/so_long.git`
+1. Clone the repository: `git clone --recurse-submodules https://github.com/lkilpela/so_long.git`
+- When you clone this repository, you also need to initialize and update the submodules to get the code in the `libft` repository.
+- If you've already cloned the repository without the --recurse-submodules option, you can initialize and update the submodules with the following commands:
+```
+git submodule init
+git submodule update
+```
+
 2. Navigate into the project directory: `cd so_long`
 3. Compile the project: `make`
 4. Run the game: `./so_long map_file/map1.ber`
