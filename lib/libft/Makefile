@@ -11,16 +11,16 @@ OBJS = $(SRCS:%.c=%.o)
 all: $(NAME)
 
 %.o : %.c $(HDRS)
-	$(CC) $(CCFLAGS) -c -I./include $< -o $@
+	@$(CC) $(CCFLAGS) -c -I./include $< -o $@
 	
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
 
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
