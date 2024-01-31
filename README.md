@@ -58,7 +58,9 @@ The assets used in this project were taken from:
 
 ### 🛠️ Installation & Setup
 
-1. Clone the repository: `git clone --recurse-submodules https://github.com/lkilpela/so_long.git`
+1. Clone the repository: 
+```git clone --recurse-submodules https://github.com/lkilpela/so_long.git
+```
 - When you clone this repository, you also need to initialize and update the submodules to get the code in the `libft` repository.
 - If you've already cloned the repository without the --recurse-submodules option, you can initialize and update the submodules with the following commands:
 ```
