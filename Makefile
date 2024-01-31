@@ -25,19 +25,17 @@ $(NAME): $(OBJS)
 	@$(CC) $(OBJS) $(LIBS) $(HDRS) -o $(NAME) -framework Cocoa -framework OpenGL -framework IOKit
 
 clean:
-	@echo "Cleaning object files and build directories..."
+	@echo "[so_long] Cleaning object files and build directories..."
 	@rm -rf $(OBJS)
 	@rm -rf $(LIBMLX)/build
-	@rm -rf $(LIBFT)/build
-#@make -C $(LIBFT) clean
+	@make -C $(LIBFT) clean
 
 fclean: clean
-	@echo "Removing executable..."
+	@echo "[so_long] Removing executable..."
 	@rm -rf $(NAME)
-	@make clean -C $(LIBMLX)
-	@make fclean -C $(LIBFT)
+	@rm -rf $(LIBFT)/build
 
 re: fclean all
-	@echo "Rebuilding everything..."
+	@echo "[so_long] Rebuilding everything..."
 
 .PHONY: all clean fclean re libft libmlx
