@@ -63,7 +63,7 @@ The assets used in this project were taken from:
 ```
 git clone --recurse-submodules https://github.com/lkilpela/so_long.git
 ```
-- If you've already cloned the repository without the --recurse-submodules option, you can initialize and update the submodules with the following commands:
+- If you've already cloned the repository without the `--recurse-submodules` option, you can initialize and update the submodules with the following commands:
 ```
 git submodule init
 git submodule update
