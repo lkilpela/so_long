@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 23:44:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/31 15:10:51 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/05 11:39:20 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	check_argument(int argc, char **argv)
 	len = ft_strlen(filename);
 	if (len < 4 || ft_strncmp((filename + len - 4), ".ber", 4) != 0)
 	{
-		print_error(ERROR_INVALID_MAP_FILE);
+		print_error(ERROR_INVALID_FILE_EXTENSION);
 		exit (EXIT_FAILURE);
 	}
 }
