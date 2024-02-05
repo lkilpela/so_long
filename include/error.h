@@ -6,31 +6,35 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 13:42:23 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/29 14:18:18 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/05 11:28:34 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERROR_H
 # define ERROR_H
 
-# define ERROR_NULL_ARGUMENT -1
-# define ERROR_OPENING_FILE -2
-# define ERROR_ALLOCATING_MEMORY -3
-# define ERROR_READING_FILE -4
-# define ERROR_INVALID_MAP -5
-# define ERROR_EMPTY_MAP -6
-# define ERROR_INVALID_CHARACTER -7
-# define ERROR_INVALID_DIMENSIONS -8
-# define ERROR_INVALID_BOUNDARY -9
-# define ERROR_INVALID_PLAYER_COUNT -10
-# define ERROR_INVALID_EXIT_COUNT -11
-# define ERROR_NO_MAP_FILE -12
-# define ERROR_INVALID_MAP_FILE -13
-# define ERROR_NO_PLAYER -14
-# define ERROR_NO_EXIT -15
-# define ERROR_NO_COLLECTIBLE -16
-# define ERROR_LOAD_TEXTURE -17
-# define ERROR_INVALID_PATH -18
-# define LAST_ERROR -19
+enum e_errocode
+{
+	NO_ERROR
+	ERROR_NULL_ARGUMENT
+	ERROR_OPENING_FILE
+	RROR_ALLOCATING_MEMORY
+	ERROR_READING_FILE
+	ERROR_INVALID_MAP_FILE
+	ERROR_EMPTY_MAP
+	ERROR_INVALID_CHARACTER
+	ERROR_INVALID_DIMENSIONS
+	ERROR_INVALID_BOUNDARY
+	ERROR_INVALID_PLAYER_COUNT
+	ERROR_INVALID_EXIT_COUNT
+	ERROR_NO_MAP_FILE
+	ERROR_INVALID_MAP_FILE
+	ERROR_NO_PLAYER
+	ERROR_NO_EXIT
+	ERROR_NO_COLLECTIBLE
+	ERROR_LOAD_TEXTURE
+	ERROR_INVALID_PATH
+	LAST_ERROR
+}
 
 #endif
