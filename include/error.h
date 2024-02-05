@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 13:42:23 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/02/05 11:33:09 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/05 11:33:56 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 enum e_errcode
 {
 	NO_ERROR,
-	ERROR_NULL_ARGUMENT, 
+	ERROR_NULL_ARGUMENT,
 	ERROR_OPENING_FILE,
 	RROR_ALLOCATING_MEMORY,
 	ERROR_READING_FILE,
