@@ -6,14 +6,14 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 13:42:23 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/02/05 11:28:34 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/05 11:30:33 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERROR_H
 # define ERROR_H
 
-enum e_errocode
+enum e_errcode
 {
 	NO_ERROR
 	ERROR_NULL_ARGUMENT
@@ -35,6 +35,6 @@ enum e_errocode
 	ERROR_LOAD_TEXTURE
 	ERROR_INVALID_PATH
 	LAST_ERROR
-}
+};
 
 #endif
