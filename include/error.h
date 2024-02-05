@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 13:42:23 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/02/05 11:33:56 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/05 11:38:16 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ enum e_errcode
 	NO_ERROR,
 	ERROR_NULL_ARGUMENT,
 	ERROR_OPENING_FILE,
-	RROR_ALLOCATING_MEMORY,
+	ERROR_ALLOCATING_MEMORY,
 	ERROR_READING_FILE,
 	ERROR_INVALID_MAP_FILE,
 	ERROR_EMPTY_MAP,
@@ -28,7 +28,7 @@ enum e_errcode
 	ERROR_INVALID_PLAYER_COUNT,
 	ERROR_INVALID_EXIT_COUNT,
 	ERROR_NO_MAP_FILE,
-	ERROR_INVALID_MAP_FILE,
+	ERROR_INVALID_FILE_EXTENSION,
 	ERROR_NO_PLAYER,
 	ERROR_NO_EXIT,
 	ERROR_NO_COLLECTIBLE,
