@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 13:42:23 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/02/05 11:38:16 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/05 11:41:40 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ enum e_errcode
 	ERROR_OPENING_FILE,
 	ERROR_ALLOCATING_MEMORY,
 	ERROR_READING_FILE,
-	ERROR_INVALID_MAP_FILE,
+	ERROR_INVALID_MAP,
 	ERROR_EMPTY_MAP,
 	ERROR_INVALID_CHARACTER,
 	ERROR_INVALID_DIMENSIONS,
