@@ -19,13 +19,13 @@ libmlx:
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
 %.o : %.c
-	@echo "\033[32m[so_long] Building: $< into $@\033[0m"
+	@echo "\033[32m[so_long] Compiling: $< into $@\033[0m"
 	@$(CC) $(CCFLAGS) -o $@ -c $< $(HDRS)
-#@echo "\033[32m[so_long] Compiling: $<)\033[0m"
 
 $(NAME): $(OBJS)
+	@echo "\033[1;32m[so_long] Linking static library libft.a and libmlx42.a\033[0m"
 	@$(CC) $(OBJS) $(LIBS) $(HDRS) -o $(NAME) -framework Cocoa -framework OpenGL -framework IOKit
-
+	@echo "[so_long] Built target so_long"
 clean:
 	@rm -rf $(OBJS)
 	@rm -rf $(LIBMLX)/build
