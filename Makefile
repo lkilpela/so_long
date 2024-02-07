@@ -19,8 +19,9 @@ libmlx:
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
 %.o : %.c
+	@echo "\033[32m[so_long] Building: $< into $@\033[0m"
 	@$(CC) $(CCFLAGS) -o $@ -c $< $(HDRS)
-	@echo "\033[32m[so_long] Compiling so_long: $(notdir $<)\033[0m"
+#@echo "\033[32m[so_long] Compiling: $<)\033[0m"
 
 $(NAME): $(OBJS)
 	@$(CC) $(OBJS) $(LIBS) $(HDRS) -o $(NAME) -framework Cocoa -framework OpenGL -framework IOKit
