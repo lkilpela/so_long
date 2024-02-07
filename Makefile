@@ -26,18 +26,19 @@ $(NAME): $(OBJS)
 	@echo "\033[1;32m[so_long] Linking static library libft.a and libmlx42.a\033[0m"
 	@$(CC) $(OBJS) $(LIBS) $(HDRS) -o $(NAME) -framework Cocoa -framework OpenGL -framework IOKit
 	@echo "[so_long] Built target so_long"
+
 clean:
 	@rm -rf $(OBJS)
 	@rm -rf $(LIBMLX)/build
 	@make -C $(LIBFT) clean
-	@echo "\033[32m[so_long] Object files cleaned.\033[0m"
+	@echo "[so_long] Object files cleaned."
 
 fclean: clean
 	@rm -rf $(NAME)
 	@rm -rf $(LIBFT)/build
-	@echo "\033[32m[so_long] Everything deleted.\033[0m"
+	@echo "[so_long] Everything deleted."
 
 re: fclean all
-	@echo "\033[32m[so_long] Everything rebuilt.\033[0m"
+	@echo "[so_long] Everything rebuilt."
 
 .PHONY: all clean fclean re libft libmlx
