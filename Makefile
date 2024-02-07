@@ -19,23 +19,24 @@ libmlx:
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
 %.o : %.c
-	@$(CC) $(CCFLAGS) -o $@ -c $< $(HDRS) && printf "Compiling so_long: $(notdir $<)\n"
+	@$(CC) $(CCFLAGS) -o $@ -c $< $(HDRS)
+	@echo "\033[32m[so_long] Compiling so_long: $(notdir $<)\033[0m"
 
 $(NAME): $(OBJS)
 	@$(CC) $(OBJS) $(LIBS) $(HDRS) -o $(NAME) -framework Cocoa -framework OpenGL -framework IOKit
 
 clean:
-	@echo "[so_long] Cleaning object files and build directories..."
 	@rm -rf $(OBJS)
 	@rm -rf $(LIBMLX)/build
 	@make -C $(LIBFT) clean
+	@echo "\033[32m[so_long] Object files cleaned.\033[0m"
 
 fclean: clean
-	@echo "[so_long] Removing executable..."
 	@rm -rf $(NAME)
 	@rm -rf $(LIBFT)/build
+	@echo "\033[32m[so_long] Everything deleted.\033[0m"
 
 re: fclean all
-	@echo "[so_long] Rebuilding everything..."
+	@echo "\033[32m[so_long] Everything rebuilt.\033[0m"
 
 .PHONY: all clean fclean re libft libmlx
