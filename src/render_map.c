@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   render_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 09:12:37 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/28 23:05:26 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/07 10:12:45 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	iterate_map(t_game *game, t_tile_function func)
 		while (x < game->map.width)
 		{
 			status = func(game, x, y);
-			if (status < 0)
+			if (status != 0)
 				return (status);
 			x++;
 		}

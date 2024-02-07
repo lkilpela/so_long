@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.c                                             :+:      :+:    :+:   */
+/*   graphic.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:12:07 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/01/29 11:12:39 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/07 10:11:42 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	prepare_game_state(t_game *game)
 	int	status;
 
 	status = init_game_textures(game);
-	if (status < 0)
+	if (status != 0)
 		return (status);
 	resize_game_tiles(game, game->mlx_ptr->width, game->mlx_ptr->height);
 	mlx_resize_hook(game->mlx_ptr, resize_window, game);

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:27:25 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/02/05 11:41:57 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/07 10:12:35 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	load_map(t_game *game, char *map_file)
 	while (line != NULL)
 	{
 		status = add_to_map(game, line);
-		if (status < 0)
+		if (status != 0)
 		{
 			free(line);
 			close(fd);

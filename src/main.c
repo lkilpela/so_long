@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 23:44:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/02/05 11:39:20 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/07 10:12:17 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	main(int argc, char **argv)
 	check_argument(argc, argv);
 	init_game_state(&game);
 	status = load_map(&game, argv[1]);
-	if (status < 0)
+	if (status != 0)
 		print_error (status);
 	calculate_tile_size(&game, WINDOW_WIDTH, WINDOW_HEIGHT);
 	game.mlx_ptr = mlx_init(game.tile_size * game.map.width,
@@ -79,7 +79,7 @@ int	main(int argc, char **argv)
 	if (!game.mlx_ptr)
 		ft_error();
 	status = prepare_game_state(&game);
-	if (status < 0)
+	if (status != 0)
 		print_error (status);
 	render(&game);
 	init_player_movement(&game);
