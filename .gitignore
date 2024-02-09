@@ -15,3 +15,9 @@ CMakeCache.txt
 # Ignore build directories
 build/
 bin/
+
+# VS Code settings
+.vscode/
+
+# solong-error-tester directory
+solong-error-tester/
