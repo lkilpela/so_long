@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:51:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/02/07 10:09:41 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/09 12:42:53 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ static const char	*g_error_msgs[] = {
 	"Error: Invalid map. No exit found in the map.",
 	"Error: Invalid map. No collectible found in the map. The map should contain at least one collectible.",
 	"Error: Failed to load one or more game textures.",
-	"Error: Invalid map path."
+	"Error: Invalid map path.",
+	"Error: empty line in the map."
 };
 
 // Exit the program as failure.

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 13:42:23 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/02/07 09:44:58 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/09 12:42:34 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ enum e_errcode
 	ERROR_NO_COLLECTIBLE,
 	ERROR_LOAD_TEXTURE,
 	ERROR_INVALID_PATH,
+	ERROR_EMPTY_LINE,
 	LAST_ERROR
 };
 
