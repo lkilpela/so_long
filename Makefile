@@ -3,9 +3,10 @@ CCFLAGS = -Wall -Wextra -Werror -Wunreachable-code -Ofast -g
 
 LIBFT = ./lib/libft
 LIBMLX = ./lib/MLX42
+LIBGLFW = ./lib/GLFW
 
 HDRS = -I./include -I $(LIBFT)/include -I $(LIBMLX)/include $(shell pkg-config --cflags glfw3)
-LIBS = $(LIBFT)/build/libft.a $(LIBMLX)/build/libmlx42.a -ldl -pthread -lm $(shell pkg-config --libs glfw3)
+LIBS = $(LIBFT)/build/libft.a $(LIBMLX)/build/libmlx42.a $(LIBGLFW)/build/src/libglfw3.a -ldl -pthread -lm $(shell pkg-config --libs glfw3)
 SRCS = src/error.c src/game.c src/graphic.c src/main.c src/read_map.c \
 	src/render_map.c src/validate_map.c src/validate_path.c
 OBJS = $(SRCS:%.c=%.o)
