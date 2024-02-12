@@ -59,21 +59,16 @@ The assets used in this project were taken from:
 ### 🛠️ Installation & Setup
 
 1. Clone the repository: 
-- When you clone this repository, you also need to initialize and update the submodules to get the code in the `libft` repository.
 ```
-git clone --recurse-submodules https://github.com/lkilpela/so_long.git
+git clone https://github.com/lkilpela/so_long.git
 ```
-- If you've already cloned the repository without the `--recurse-submodules` option, you can initialize and update the submodules with the following commands:
-```
-git submodule init
-git submodule update
-```
-
 2. Navigate into the project directory: `cd so_long`
 3. Compile the project: `make`
 4. Run the game: `./so_long map_file/map1.ber`
 
 ### 🗺️ Map Format
+
+#### Valid Map
 
 The game map is a `.ber` file with the following format:
 
@@ -82,6 +77,17 @@ The game map is a `.ber` file with the following format:
 - `C` represents a collectible.
 - `E` represents the exit.
 - `P` represents the player.
+
+#### Invalid Map
+
+Here are some conditions that can make a map format invalid:
+1. The map is not surrounded by walls (represented by '1').
+2. The map contains characters other than the predefined ones (for example, 'P', 'E', 'C', '0', '1').
+3. The map does not contain a player ('P') or exit point ('E').
+4. The map contains more than one player or exit point.
+5. The map contains empty line.
+6. The map does not have valid path.
+7. The map does not have .ber extension
 
 ## 📝 Evaluation Requirements
 
