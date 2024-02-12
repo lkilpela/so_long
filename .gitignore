@@ -11,6 +11,7 @@ so_long
 .DS_Store
 Thumbs.db
 CMakeCache.txt
+README.md
 
 # Ignore build directories
 build/
