@@ -47,8 +47,8 @@ The assets used in this project were taken from:
 - The `Makefile` in this project uses the `-framework Cocoa -framework OpenGL -framework IOKit` flags, which are specific to macOS. If you're using a different operating system, you might need to modify the `Makefile` to use the appropriate flags for your system.
 - `gcc` or `clang`
 - `make`
-- MLX42 library. You can find it [here](https://github.com/codam-coding-college/MLX42)
-- libft library. 
+- `MLX42` library. You can find it [here](https://github.com/codam-coding-college/MLX42)
+- `libft` library. 
 
 ### 🕹️ How to Play
 
