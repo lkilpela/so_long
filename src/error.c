@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:51:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/02/12 13:17:20 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/12 13:18:42 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_error(void)
 
 void	print_error(int err)
 {
-	char	*msg;
+	const char	*msg;
 
 	msg = g_error_msgs[err];
 	if (err > 0 && err < LAST_ERROR)
