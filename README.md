@@ -12,7 +12,7 @@
 <p align="center">
     <img alt="solo" src="https://img.shields.io/badge/solo-yellow" />
     <img alt="estimated time" src="https://img.shields.io/badge/estimation-60%20hours-blue" />
-    <img alt="XP earned" src="https://img.shields.io/badge/XP%20earned-1000-orange" />
+    <img alt="XP earned" src="https://img.shields.io/badge/XP-1000-orange" />
 <p align="center">
 	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/lkilpela/so_long?color=lightblue" />
 	<img alt="Code language count" src="https://img.shields.io/github/languages/count/lkilpela/so_long?color=yellow" />
