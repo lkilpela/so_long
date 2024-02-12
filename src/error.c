@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:51:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/02/09 12:43:36 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/12 12:50:15 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ static const char	*g_error_msgs[] = {
 // Exit the program as failure.
 void	ft_error(void)
 {
-	printf("%s", mlx_strerror(mlx_errno));
+	ft_printf("%s", mlx_strerror(mlx_errno));
 	exit(EXIT_FAILURE);
 }
 
 void	print_error(int err)
 {
 	if (err > 0 && err < LAST_ERROR)
-		printf("[%d] %s\n", err, g_error_msgs[err]);
+		ft_printf("%s\n", g_error_msgs[err]);
 	else
-		printf("Unknown error\n");
+		ft_printf("Unknown error\n");
 	exit(EXIT_FAILURE);
 }
