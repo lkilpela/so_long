@@ -5,7 +5,7 @@ LIBFT = ./lib/libft
 LIBMLX = ./lib/MLX42
 
 HDRS = -I./include -I $(LIBFT)/include -I $(LIBMLX)/include
-LIBS = $(LIBFT)/build/libft.a $(LIBMLX)/build/libmlx42.a $(shell pkg-config --libs glfw3) -ldl -pthread -lm
+LIBS = $(LIBFT)/build/libft.a $(LIBMLX)/build/libmlx42.a $(shell pkg-config --libs glfw3) -ldl -pthread -lm -Wl,-rpath,/usr/local/lib
 SRCS = src/error.c src/game.c src/graphic.c src/main.c src/read_map.c \
 	src/render_map.c src/validate_map.c src/validate_path.c
 OBJS = $(SRCS:%.c=%.o)
