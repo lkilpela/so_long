@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:51:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/02/12 12:50:15 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/12 13:17:20 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,11 @@ void	ft_error(void)
 
 void	print_error(int err)
 {
+	char	*msg;
+
+	msg = g_error_msgs[err];
 	if (err > 0 && err < LAST_ERROR)
-		ft_printf("%s\n", g_error_msgs[err]);
+		write(2, msg, ft_strlen(msg));
 	else
 		ft_printf("Unknown error\n");
 	exit(EXIT_FAILURE);
