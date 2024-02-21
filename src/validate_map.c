@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 09:13:47 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/02/12 12:58:32 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/21 09:00:48 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,5 @@ int	validate_map(t_game *game)
 	status = validate_path(game, EXIT);
 	if (status != 0)
 		return (status);
-	return(validate_path(game, COLLECTIBLE));
+	return (validate_path(game, COLLECTIBLE));
 }

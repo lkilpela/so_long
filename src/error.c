@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:51:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/02/12 13:20:33 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/21 09:00:29 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static const char	*g_error_msgs[] = {
 	"Error: Invalid file. The map file must have a .ber extension.",
 	"Error: Invalid map. No player found in the map.",
 	"Error: Invalid map. No exit found in the map.",
-	"Error: Invalid map. No collectible found in the map. The map should contain at least one collectible.",
+	"Error: Invalid map. No collectible found in the map.",
 	"Error: Failed to load one or more game textures.",
 	"Error: Invalid map path.",
 	"Error: Empty line in the map."
