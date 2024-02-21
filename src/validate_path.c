@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 11:24:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/02/21 09:17:28 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/21 09:20:42 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ static int	step(t_game *game, char	*new_arr, t_position pos, char element)
 		|| game->map.grid[pos.y][pos.x] == EXIT)
 		return (0);
 	new_arr[i] = 1;
-	return (step(game, new_arr, make_pos(x - 1, y), element)
-		|| step(game, new_arr, make_pos(x + 1, y), element)
-		|| step(game, new_arr, make_pos(x, y - 1), element)
-		|| step(game, new_arr, make_pos(x, y + 1), element));
+	return (step(game, new_arr, make_pos(pos.x - 1, pos.y), element)
+		|| step(game, new_arr, make_pos(pos.x + 1, pos.y), element)
+		|| step(game, new_arr, make_pos(pos.x, pos.y - 1), element)
+		|| step(game, new_arr, make_pos(pos.x, pos.y + 1), element));
 }
 
 int	validate_path(t_game *game, char element)
@@ -47,7 +47,7 @@ int	validate_path(t_game *game, char element)
 	if (!new_arr)
 		return (ERROR_ALLOCATING_MEMORY);
 	ft_memset(new_arr, 0, game->map.width * game->map.height);
-	res = step(game, new_arr, game->player.x, game->player.y, element);
+	res = step(game, new_arr, game->player, element);
 	free(new_arr);
 	if (res == 0)
 		return (ERROR_INVALID_PATH);
