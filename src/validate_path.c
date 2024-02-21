@@ -6,13 +6,13 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 11:24:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/02/21 09:20:42 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/21 09:26:59 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_position make_pos(int x, int y)
+static t_position	make_pos(int x, int y)
 {
 	t_position pos;
 
