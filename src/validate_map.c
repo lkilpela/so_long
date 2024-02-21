@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 09:13:47 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/02/21 09:00:48 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/21 10:47:09 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,6 @@ int	validate_map(t_game *game)
 
 	if (game->map.height < 3 || game->map.width < 3)
 		return (ERROR_INVALID_MAP);
-	status = iterate_map(game, check_valid_character_and_wall);
-	if (status != 0)
-		return (status);
 	status = iterate_map(game, check_valid_character_and_wall);
 	if (status != 0)
 		return (status);
