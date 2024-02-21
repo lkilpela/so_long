@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 11:24:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/02/21 09:26:59 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/21 09:49:34 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static t_position	make_pos(int x, int y)
 {
-	t_position pos;
+	t_position	pos;
 
 	pos.x = x;
 	pos.y = y;

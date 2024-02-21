@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:27:25 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/02/21 09:44:40 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/21 10:28:28 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,29 +46,17 @@ static int	add_to_map(t_game *game, char *line)
 	return (0);
 }
 
-static int	process_line(t_game *game, int fd, char *line)
+static int	process_line(t_game *game, char *line)
 {
-	int	status;
-
 	if (line[0] == '\n' || line[0] == '\0')
-	{
-		free(line);
-		close(fd);
 		return (ERROR_EMPTY_LINE);
-	}
-	status = add_to_map(game, line);
-	if (status != 0)
-	{
-		free(line);
-		close(fd);
-		return (status);
-	}
-	return (0);
+	return (add_to_map(game, line));
 }
 
 // status error : invalid map or memory allocation
 int	load_map(t_game *game, char *map_file)
 {
+	int		fd;
 	char	*line;
 	int		status;
 
@@ -78,9 +66,13 @@ int	load_map(t_game *game, char *map_file)
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
-		status = process_line(game, fd, line);
+		status = process_line(game, line);
 		if (status != 0)
+		{
+			free(line);
+			close(fd);
 			return (status);
+		}
 		line = get_next_line(fd);
 	}
 	close(fd);

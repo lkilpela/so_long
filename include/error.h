@@ -6,16 +6,16 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 13:42:23 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/02/09 12:42:34 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/02/21 10:24:39 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERROR_H
 # define ERROR_H
 
-enum e_errcode
+enum e_error
 {
-	NO_ERROR,
+	ERROR_NONE,
 	ERROR_NULL_ARGUMENT,
 	ERROR_OPENING_FILE,
 	ERROR_ALLOCATING_MEMORY,
