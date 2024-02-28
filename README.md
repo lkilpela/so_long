@@ -24,7 +24,7 @@
 
 `so_long` is a 2D game project developed as part of the Hive Helsinki curriculum. The goal of this project is to create a simple game using the MLX42 library, a simple window management and graphics library.
 
-In the game, the player must collect all collectibles in a map and reach the exit. The map is a grid, and the player can only move one square at a time. The game counts the number of moves the player makes, encouraging the player to complete the game in as few moves as possible.
+In the game, the player collects collectibles in a map and reach the exit. The map is a grid, and the player can only move one square at a time. The game counts the number of moves the player makes, encouraging the player to complete the game in as few moves as possible.
 
 This project was completed as a **solo project**. It provided an opportunity to learn about graphics programming, game logic, and working with external libraries in C.
 
