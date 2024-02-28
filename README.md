@@ -107,11 +107,11 @@ The `so_long` project was evaluated based on the following criteria:
 
 Here are some of the comments received during the peer evaluation of the `so_long` project:
 
-> **Peer 1**: "..."
+> **Peer 1**: "The project looks good and I like the choice of graphics. Lumi was able to explain how the code works, and I tested the functionality and edge cases according to the eval form. There are some discrepancies between the subject document and the eval form, for example subject wants Error being followed by a newline before the error message, but the eval form does not require it. Also according to the eval form the exit should only work after all collectibles have been collected, but it doesn't state that in the subject. Therefore I judged that it's up to interpretation and either choice can be defended. Good luck in the next evaluations!"
 
-> **Peer 2**: "..."
+> **Peer 2**: "Lumi's so long was a great learning experience! She was able to explain her code and it was structured in a very easy to follow way. It's great for me to see a fully functional version since I'm working on this project myself and she even helped clarify some misconceptions that I had about the mlx library. I tried to break it but it passed every one of my tests. Overall a great job! There was a small point regarding being able to exit without obtaining all the collectibles but it was not specified clearly in the subject. She was able to defend her logic successfully and even though you can exit without all the collectibles it is a pass in my book after scanning through the subject looking for something that said otherwise. Really visually appealing project and the game runs smoothly. Thanks for taking the time to explain it to me and good luck with the next evals!"
 
-> **Peer 3**: "..."
+> **Peer 3**: "Lumi's project was very cleanly written and she did a great job explaining it. She had very diverse test maps and test cases prepared for the evaluation. The program also passed any test I could come up with to test it and even in those cases had no leaks. Great job!"
 
 ## 📜 License
 
