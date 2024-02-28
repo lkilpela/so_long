@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-    <img alt="score" src="https://img.shields.io/badge/score-0%2F100-brightgreen" />
+    <img alt="score" src="https://img.shields.io/badge/score-100%2F100-brightgreen" />
 <p align="center">
     <img alt="solo" src="https://img.shields.io/badge/solo-yellow" />
     <img alt="estimated time" src="https://img.shields.io/badge/estimation-60%20hours-blue" />
