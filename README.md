@@ -1,6 +1,6 @@
 <h1 align="center">
 	<img src="./textures/player.png" alt="Player Image">
-	SO_LONG
+	<img src="https://github.com/lkilpela/42-project-badges/blob/main/badges/so_longe.png">
 </h1>
 
 <p align="center">
