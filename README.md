@@ -19,6 +19,7 @@
 	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/lkilpela/so_long?color=green" />
 </p>
 <img src="./textures/player.png" alt="Player Image">
+
 ## 🎮 About The Project
 
 `so_long` is a 2D game project developed as part of the Hive Helsinki curriculum. The goal of this project is to create a simple game using the MLX42 library, a simple window management and graphics library.
